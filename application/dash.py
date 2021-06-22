@@ -971,7 +971,9 @@ body = html.Div([
 
 
     
-app.layout = html.Div([body])
+app.layout = html.Div([body],
+                              style={'width': '1900px',
+                                    "background-color": "lightgray"})
 
 from application.dash import app
 from settings import config
