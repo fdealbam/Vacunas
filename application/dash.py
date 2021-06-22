@@ -224,14 +224,16 @@ pd.DataFrame(vac_meses_g).to_csv('0000proceso.csv')
 vac_meses_g=pd.read_csv('0000proceso.csv')
 
 #Identificadores Cantidad
-sumdic_v = vac_meses_g.iloc[5]['Cantidad'] #al actualizar el mes, subir un punto
+sumdic_v = vac_meses_g.iloc[6]['Cantidad'] #al actualizar el mes, subir un punto
 sumene_v = vac_meses_g.iloc[1]['Cantidad']
 sumfeb_v = vac_meses_g.iloc[2]['Cantidad']
-summar_v = vac_meses_g.iloc[3]['Cantidad']
-sumabr_v = vac_meses_g.iloc[0]['Cantidad']
-summay_v = vac_meses_g.iloc[4]['Cantidad'] 
+summar_v = vac_meses_g.iloc[4]['Cantidad']
+sumabr_v = vac_meses_g.iloc[5]['Cantidad']
+summay_v = vac_meses_g.iloc[0]['Cantidad'] 
+sumjun_v = vac_meses_g.iloc[3]['Cantidad']
+#sumjun_v = vac_meses_g.iloc[4]['Cantidad']
 # al actualizar el mes, utilizar el valor.iloc antiguo de sumdic_v
-
+#Verificar meses
 ########################################################################## Para graficas mensuales
 
 vac_meses_g_pie = vac_meses_g
@@ -241,7 +243,10 @@ vac_meses_T = vac_meses_g_pie.T
 vac_meses_T.drop(['Mes_y'], inplace=True)
 vac_meses_T.to_csv('0000proceso.csv')
 
-vac_meses_T1=pd.read_csv('0000proceso.csv', names=['id','Abril2021','Enero2021','Febrero2021','Marzo2021','Mayo2021','Diciembre2020'])
+vac_meses_T1=pd.read_csv('0000proceso.csv', names=['id','Diciembre2020','Enero2021','Febrero2021','Marzo2021',
+                                                   'Abril2021','Mayo2021','Junio2021',#"Julio2021",#"Agosto2021",
+                                                   #"Septiembre2021"
+                                                   ])
 vac_meses_T1.drop([0], inplace=True,  errors='ignore')  #Ae errors='ignore'
 
 
@@ -254,6 +259,8 @@ figvac_diciembre.update_layout(paper_bgcolor='rgba(0,0,0,0)',
                   uniformtext_minsize=6,
                   uniformtext_mode='hide',
                   autosize=True,
+                               width=300,
+                  height=300,
                   title_font_size = 6,
                   font_color="white",
                   title_font_color="white",
@@ -275,6 +282,8 @@ figvac_enero.update_layout(paper_bgcolor='rgba(0,0,0,0)',
                   uniformtext_minsize=6,
                   uniformtext_mode='hide',
                   autosize=True,
+                           width=300,
+                  height=300,
                   title_font_size = 6,
                   font_color="white",
                   title_font_color="white",
@@ -297,6 +306,8 @@ figvac_febrero.update_layout(paper_bgcolor='rgba(0,0,0,0)',
                   uniformtext_minsize=6,
                   uniformtext_mode='hide',
                   autosize=True,
+                             width=300,
+                  height=300,
                   title_font_size = 6,
                   font_color="white",
                   title_font_color="white",
@@ -318,6 +329,8 @@ figvac_marzo.update_layout(paper_bgcolor='rgba(0,0,0,0)',
                   uniformtext_minsize=6,
                   uniformtext_mode='hide',
                   autosize=True,
+                           width=300,
+                  height=300,
                   title_font_size = 6,
                   font_color="white",
                   title_font_color="white",
@@ -340,6 +353,8 @@ figvac_abril.update_layout(paper_bgcolor='rgba(0,0,0,0)',
                   uniformtext_mode='hide',
                   autosize=True,
                   title_font_size = 6,
+                           width=300,
+                  height=300,
                   font_color="white",
                   title_font_color="white",
                   margin = dict(autoexpand= False),
@@ -360,6 +375,8 @@ figvac_mayo.update_layout(paper_bgcolor='rgba(0,0,0,0)',
                   uniformtext_mode='hide',
                   autosize=True,
                   title_font_size = 6,
+                          width=300,
+                  height=300,
                   font_color="white",
                   title_font_color="white",
                   margin = dict(autoexpand= False),
@@ -370,6 +387,28 @@ colors = ['#9D2449']
 figvac_mayo.update_traces(rotation=90,
                                marker=dict(colors=colors))
 
+
+#### mes junio
+figvac_junio = px.pie(vac_meses_T1, values='Junio2021', names='id',
+                color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
+
+figvac_junio.update_layout(paper_bgcolor='rgba(0,0,0,0)',
+                  plot_bgcolor='rgba(0,0,0,0)',
+                  uniformtext_minsize=6,
+                  uniformtext_mode='hide',
+                  autosize=True,
+                  title_font_size = 6,
+                  font_color="white",
+                  title_font_color="white",
+                           width=300,
+                  height=300,
+                  margin = dict(autoexpand= False),
+                          showlegend=False),
+    
+colors = ['#9D2449']
+
+figvac_junio.update_traces(rotation=90,
+                               marker=dict(colors=colors))
 
 ########################################################################## Para la APP 
 #-------------------------------------GRAFICA1 DE FARMACEUTICA para TABLA1
@@ -465,17 +504,6 @@ vacunas_flyies1_bien["Fecha"] = vacunas_flyies1_bien["Fecha"].dt.strftime("%d/%m
 
 
 
-
-######################################################### Para la APP 
-
-#-------------------------------------TABLAS MESES TABLA2
-table_sumameses = [
-    html.Thead(html.Tr([html.Th(), html.Th(), html.Th(), html.Th(), html.Th()]))] 
-row1 = html.Tr([html.Td("Diciembre"),html.Td("Enero"), html.Td("Febrero"),  html.Td("Marzo"), html.Td("Abril")])
-
-row2 = html.Tr([html.Td([str(f"{sumdic_v:,d}")]), html.Td([str(f"{sumene_v:,d}")]), html.Td([str(f"{sumfeb_v:,d}")]), html.Td([str(f"{summar_v:,d}")]), html.Td([str(f"{sumabr_v:,d}")])])
-
-table_bodymeses = [html.Tbody([row1, row2])]
 
 
 ######################################################### Promedio diario
@@ -579,7 +607,7 @@ body = html.Div([
     html.Br(),
     # vacunas listas
     dbc.Row([
-        dbc.Col(html.H4([ 
+        dbc.Col(html.H2([ 
                          dbc.Badge(f"{int(tot_vac):,}", color="danger", className="mr-1"),
                          "   vacunas listas para aplicarse "], style={"color": "gray"}),
                 style={'text-transform': "uppercase", 
@@ -603,76 +631,29 @@ body = html.Div([
 
 
 # ###################### SECCION . MESES
-
-   
+                        
             dbc.Row([
-            dbc.Col(html.H6("Diciembre"),
-                   # width= 3, 
-                    width= { "size": 2, "offset":1}),
-            dbc.Col(html.H6("Enero")),
-                  # width={'size' : "auto","offset":1}),
-            dbc.Col(html.H6("Febrero")),
-                  # width={'size' : "auto","offset":1}),
-            dbc.Col(html.H6("Marzo")),
-                  # width={'size' : "auto","offset":1}),
-            dbc.Col(html.H6("Abril")),
-                  # width={'size' : "auto", "offset":1}),
-            dbc.Col(html.H6("Mayo")),
-                  # width={'size' : "auto", "offset":1}),
+            dbc.Col(dbc.Button(([html.H4("Diciembre"),html.H3([str(f'{sumdic_v:,d}')]),
+                                html.P(dcc.Graph(figure=figvac_diciembre),style={"width":170}),]), disabled=True)),
+            dbc.Col(dbc.Button(([html.H4("Enero"),html.H3([str(f'{sumene_v:,d}')]), 
+                                html.P(dcc.Graph(figure=figvac_enero),style={"width":170}),]), disabled=True)),
+            dbc.Col(dbc.Button(([html.H4("Febrero"),html.H3([str(f'{sumfeb_v:,d}')]), 
+                                html.P(dcc.Graph(figure=figvac_febrero),style={"width":170}),]), disabled=True)),
+            dbc.Col(dbc.Button(([html.H4("Marzo"),html.H3([str(f'{summar_v:,d}')]),
+                                  html.P(dcc.Graph(figure=figvac_marzo),style={"width":170}),]), disabled=True)),
+            dbc.Col(dbc.Button(([html.H4("Abril"),html.H3([str(f'{sumabr_v:,d}')]),
+                                  html.P(dcc.Graph(figure=figvac_abril),style={"width":170}),]), disabled=True)),
+            dbc.Col(dbc.Button(([html.H4("Mayo"),html.H3([str(f'{summay_v:,d}')]),
+                                  html.P(dcc.Graph(figure=figvac_mayo),style={"width":170}),]), disabled=True)),
+            dbc.Col(dbc.Button(([html.H4("Junio"),html.H3([str(f'{sumjun_v:,d}')]),
+                                  html.P(dcc.Graph(figure=figvac_junio),style={"width":170}),]), disabled=True)),
 
            ], align='left'),
     
                
             
     
-#Cintillo 1
-    dbc.Row(
-           [
-               dbc.Col(html.H3(str(f'{sumdic_v:,d}')),
-                       width={'size' : 2, "offset":1}),
-               dbc.Col(html.H3(str(f'{sumene_v:,d}'))),
-                     #  width={'size' : "auto", "offset":1}),
-               dbc.Col(html.H3(str(f'{sumfeb_v:,d}'))),
-                      # width={'size' : "auto", "offset":1}),
-               dbc.Col(html.H3(str(f'{summar_v:,d}'))),
-                      #width={'size' : "auto", "offset":1}),
-               dbc.Col(html.H3(str(f'{sumabr_v:,d}'))),
-                      #width={'size' : "auto", "offset":1}),
-               dbc.Col(html.H3(str(f'{summay_v:,d}'))),
-                      #width={'size' : "auto", "offset":1}),
-            ], align='center'),
-    
 
-    dbc.Row(
-           [
-           dbc.Col(dcc.Graph(figure=figvac_diciembre),
-                    style={#'size' : 2, #"offset":0,
-                          "margin-top": "-90px"
-                        
-                          }), 
-           dbc.Col(dcc.Graph(figure=figvac_enero),
-                    style={#'size' : 2,# "offset":0,
-                          "margin-top": "-90px"
-                          }), 
-           dbc.Col(dcc.Graph(figure=figvac_febrero),
-                    style={#'size' : 2, #"offset":0,
-                          "margin-top": "-90px"
-                          }), 
-           dbc.Col(dcc.Graph(figure=figvac_marzo),
-                    style={#'size' : 2,# "offset":0,
-                          "margin-top": "-90px"
-                          }), 
-           dbc.Col(dcc.Graph(figure=figvac_abril),
-                    style={#'size' : 2, #"offset":0,
-                          "margin-top": "-90px"
-                          }),
-           dbc.Col(dcc.Graph(figure=figvac_mayo),
-                    style={#'size' : 2, #"offset":0,
-                          "margin-top": "-90px"
-                          }),
-            ], #align='start', 
-        justify ="start"),
-    
    
     html.Br(),
 
@@ -697,7 +678,7 @@ body = html.Div([
             data=vuelos.to_dict('records'),
                     fixed_rows={'headers': True,"striped": True,},
                     style_table={'height': '300px', 'overflowY': 'auto',"striped": True,},
-                    style_cell={'fontSize':12, 'font-family':'Nunito Sans',"striped": True,}, 
+                    style_cell={'font-size':14, 'font-family':'Nunito Sans',"striped": True,}, 
                     style_header = {'border': 'none','fontWeight': 'condensed'},
                     style_data = {'border': 'none', "striped": True, },
                     style_data_conditional=[{'if': {'row_index': 'odd'},
@@ -771,7 +752,7 @@ body = html.Div([
                 
                     style_table={'height': '300px', "striped": True,},
                     style_cell={#"align-text": "left",
-                        'fontSize':12, 'font-family':'Nunito Sans',"striped": True,}, 
+                        'font-size':14, 'font-family':'Nunito Sans',"striped": True,}, 
                     style_header = {'border': 'none','fontWeight': 'bold'},
                     style_data = {'border': 'none', "striped": True, },
                     style_data_conditional=[{'if': {'row_index': 'odd'},
@@ -835,7 +816,7 @@ body = html.Div([
                 
                     style_table={'height': '300px', "striped": True,},
                     style_cell={#"align-text": "left",
-                        'fontSize':12, 'font-family':'Nunito Sans',"striped": True,}, 
+                        'font-size':14, 'font-family':'Nunito Sans',"striped": True,}, 
                     style_header = {'border': 'none','fontWeight': 'bold'},
                     style_data = {'border': 'none', "striped": True, },
                     style_data_conditional=[{'if': {'row_index': 'odd'},
