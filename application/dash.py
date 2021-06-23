@@ -1,3 +1,6 @@
+
+# Vacunas 
+
 import dash
 import matplotlib.pyplot as plt 
 import dash_bootstrap_components as dbc
@@ -219,8 +222,8 @@ vac_meses['Mes'].replace(13.0,'Diciembre',inplace=True)
 vac_meses['Mes']=vac_meses['Mes'].astype(str)
 
 vac_meses['Mes_y']=vac_meses['Mes']+vac_meses['Year']
-vac_meses_g=vac_meses.groupby('Mes_y')['Cantidad'].sum()
-pd.DataFrame(vac_meses_g).to_csv('0000proceso.csv')
+vac_meses_g1=vac_meses.groupby('Mes_y')['Cantidad'].sum()
+pd.DataFrame(vac_meses_g1).to_csv('0000proceso.csv')
 vac_meses_g=pd.read_csv('0000proceso.csv')
 
 #Identificadores Cantidad
@@ -228,8 +231,8 @@ sumdic_v = vac_meses_g.iloc[6]['Cantidad'] #al actualizar el mes, subir un punto
 sumene_v = vac_meses_g.iloc[1]['Cantidad']
 sumfeb_v = vac_meses_g.iloc[2]['Cantidad']
 summar_v = vac_meses_g.iloc[4]['Cantidad']
-sumabr_v = vac_meses_g.iloc[5]['Cantidad']
-summay_v = vac_meses_g.iloc[0]['Cantidad'] 
+sumabr_v = vac_meses_g.iloc[0]['Cantidad']
+summay_v = vac_meses_g.iloc[5]['Cantidad'] 
 sumjun_v = vac_meses_g.iloc[3]['Cantidad']
 #sumjun_v = vac_meses_g.iloc[4]['Cantidad']
 # al actualizar el mes, utilizar el valor.iloc antiguo de sumdic_v
@@ -243,8 +246,9 @@ vac_meses_T = vac_meses_g_pie.T
 vac_meses_T.drop(['Mes_y'], inplace=True)
 vac_meses_T.to_csv('0000proceso.csv')
 
-vac_meses_T1=pd.read_csv('0000proceso.csv', names=['id','Diciembre2020','Enero2021','Febrero2021','Marzo2021',
-                                                   'Abril2021','Mayo2021','Junio2021',#"Julio2021",#"Agosto2021",
+vac_meses_T1=pd.read_csv('0000proceso.csv', names=['id', 'Abril2021','Enero2021', 'Febrero2021',
+                                                   'Junio2021', 'Marzo2021', 'Mayo2021', 'Diciembre2020',
+                                                 #"Julio2021",#"Agosto2021",
                                                    #"Septiembre2021"
                                                    ])
 vac_meses_T1.drop([0], inplace=True,  errors='ignore')  #Ae errors='ignore'
@@ -269,7 +273,7 @@ figvac_diciembre.update_layout(paper_bgcolor='rgba(0,0,0,0)',
     
 colors = ['#9D2449']
 
-figvac_diciembre.update_traces(rotation=90,
+figvac_diciembre.update_traces(rotation=40,
                                marker=dict(colors=colors))
 
 
@@ -292,7 +296,7 @@ figvac_enero.update_layout(paper_bgcolor='rgba(0,0,0,0)',
     
 colors = ['#9D2449']
 
-figvac_enero.update_traces(rotation=90,
+figvac_enero.update_traces(rotation=0,
                                marker=dict(colors=colors))
 
 
@@ -316,7 +320,7 @@ figvac_febrero.update_layout(paper_bgcolor='rgba(0,0,0,0)',
     
 colors = ['#9D2449']
 
-figvac_febrero.update_traces(rotation=90,
+figvac_febrero.update_traces(rotation=10,
                                marker=dict(colors=colors))
 
 
@@ -339,7 +343,7 @@ figvac_marzo.update_layout(paper_bgcolor='rgba(0,0,0,0)',
     
 colors = ['#9D2449']
 
-figvac_marzo.update_traces(rotation=90,
+figvac_marzo.update_traces(rotation=35,
                                marker=dict(colors=colors))
 
 
@@ -362,7 +366,7 @@ figvac_abril.update_layout(paper_bgcolor='rgba(0,0,0,0)',
     
 colors = ['#9D2449']
 
-figvac_abril.update_traces(rotation=90,
+figvac_abril.update_traces(rotation=36,
                                marker=dict(colors=colors))
 
 #### mes Abril
@@ -384,7 +388,7 @@ figvac_mayo.update_layout(paper_bgcolor='rgba(0,0,0,0)',
     
 colors = ['#9D2449']
 
-figvac_mayo.update_traces(rotation=90,
+figvac_mayo.update_traces(rotation=43,
                                marker=dict(colors=colors))
 
 
@@ -407,7 +411,7 @@ figvac_junio.update_layout(paper_bgcolor='rgba(0,0,0,0)',
     
 colors = ['#9D2449']
 
-figvac_junio.update_traces(rotation=90,
+figvac_junio.update_traces(rotation=43,
                                marker=dict(colors=colors))
 
 ########################################################################## Para la APP 
@@ -633,28 +637,37 @@ body = html.Div([
 # ###################### SECCION . MESES
                         
             dbc.Row([
-            dbc.Col(dbc.Button(([html.H4("Diciembre"),html.H3([str(f'{sumdic_v:,d}')]),
-                                html.P(dcc.Graph(figure=figvac_diciembre),style={"width":170}),]), disabled=True)),
-            dbc.Col(dbc.Button(([html.H4("Enero"),html.H3([str(f'{sumene_v:,d}')]), 
-                                html.P(dcc.Graph(figure=figvac_enero),style={"width":170}),]), disabled=True)),
-            dbc.Col(dbc.Button(([html.H4("Febrero"),html.H3([str(f'{sumfeb_v:,d}')]), 
-                                html.P(dcc.Graph(figure=figvac_febrero),style={"width":170}),]), disabled=True)),
-            dbc.Col(dbc.Button(([html.H4("Marzo"),html.H3([str(f'{summar_v:,d}')]),
-                                  html.P(dcc.Graph(figure=figvac_marzo),style={"width":170}),]), disabled=True)),
-            dbc.Col(dbc.Button(([html.H4("Abril"),html.H3([str(f'{sumabr_v:,d}')]),
-                                  html.P(dcc.Graph(figure=figvac_abril),style={"width":170}),]), disabled=True)),
-            dbc.Col(dbc.Button(([html.H4("Mayo"),html.H3([str(f'{summay_v:,d}')]),
-                                  html.P(dcc.Graph(figure=figvac_mayo),style={"width":170}),]), disabled=True)),
-            dbc.Col(dbc.Button(([html.H4("Junio"),html.H3([str(f'{sumjun_v:,d}')]),
-                                  html.P(dcc.Graph(figure=figvac_junio),style={"width":170}),]), disabled=True)),
+            dbc.Col(dbc.Button(([html.H6("Diciembre"),html.H3([str(f'{sumdic_v:,d}')]),
+                                html.P(dcc.Graph(figure=figvac_diciembre,style={"width":210, "margin-left": "-80px"})),
+                                ]),style={"height":"350px",  "background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"40px"}, disabled=True)),
+            dbc.Col(dbc.Button(([html.H6("Enero"),html.H3([str(f'{sumene_v:,d}')]), 
+                                html.P(dcc.Graph(figure=figvac_enero,style={"width":210, "margin-left": "-80px"})),
+                                ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"40px"},disabled=True)),
+            dbc.Col(dbc.Button(([html.H6("Febrero"),html.H3([str(f'{sumfeb_v:,d}')]), 
+                                html.P(dcc.Graph(figure=figvac_febrero,style={"width":190, "margin-left": "-80px"})),
+                                ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"40px"}, disabled=True)),
+            dbc.Col(dbc.Button(([html.H6("Marzo"),html.H3([str(f'{summar_v:,d}')]),
+                                  html.P(dcc.Graph(figure=figvac_marzo,style={"width":190, "margin-left": "-80px"})),
+                                ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"40px"},disabled=True)),
+            dbc.Col(dbc.Button(([html.H6("Abril"),html.H3([str(f'{sumabr_v:,d}')]),
+                                  html.P(dcc.Graph(figure=figvac_abril,style={"width":190, "margin-left": "-80px"})),
+                                ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"40px"}, disabled=True)),
+            dbc.Col(dbc.Button(([html.H6("Mayo"),html.H3([str(f'{summay_v:,d}')], style={"color":"red"}),
+                                  html.P(dcc.Graph(figure=figvac_mayo,style={"width":190, "margin-left": "-80px"})),
+                                ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"40px"},disabled=True)),
+            dbc.Col(dbc.Button(([html.H6("Junio"),html.H3([str(f'{sumjun_v:,d}')]),
+                                  html.P(dcc.Graph(figure=figvac_junio,style={"width":190, "margin-left": "-80px"})),
+                                ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"40px"}, disabled=True)),
 
-           ], align='left'),
+           ], align='center'),
     
                
             
     
 
    
+    html.Br(),
+    html.Br(),
     html.Br(),
 
     
@@ -953,12 +966,13 @@ body = html.Div([
 
     
 app.layout = html.Div([body],
-                              style={'width': '1900px',
+                              style={'width': '1850px',
                                     #"background-color": "lightgray"
                                     })
 
-from application.dash import app
-from settings import config
+#from application.dash import app
+#from settings import config
 
 if __name__ == "__main__":
     app.run_server(use_reloader = False)
+    
