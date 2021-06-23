@@ -1,4 +1,3 @@
-
 # Vacunas 
 
 import dash
@@ -639,7 +638,8 @@ body = html.Div([
             dbc.Row([
             dbc.Col(dbc.Button(([html.H6("Diciembre"),html.H3([str(f'{sumdic_v:,d}')]),
                                 html.P(dcc.Graph(figure=figvac_diciembre,style={"width":210, "margin-left": "-80px"})),
-                                ]),style={"height":"350px",  "background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"40px"}, disabled=True)),
+                                ]),style={"height":"350px",  "background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"40px"
+                                         }, disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Enero"),html.H3([str(f'{sumene_v:,d}')]), 
                                 html.P(dcc.Graph(figure=figvac_enero,style={"width":210, "margin-left": "-80px"})),
                                 ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"40px"},disabled=True)),
@@ -778,6 +778,8 @@ body = html.Div([
             "margin-bottom": "5px",      
             'width': '750px' }),            
 
+    html.Br(),
+    html.Br(),
     html.Br(),
       
 
@@ -970,9 +972,8 @@ app.layout = html.Div([body],
                                     #"background-color": "lightgray"
                                     })
 
-#from application.dash import app
-#from settings import config
+from application.dash import app
+from settings import config
 
 if __name__ == "__main__":
     app.run_server(use_reloader = False)
-    
