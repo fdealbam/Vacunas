@@ -800,13 +800,13 @@ body = html.Div([
     
         dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/Vacunas/blob/main/laboratoriosvacunas.jpg?raw=true"),
                        #https://github.com/fdealbam/Vacunas/blob/main/imagenmundi.jpg
-                      lg={ "offset": 6, "size": 5}, 
+                      lg={ "offset": 2, "size": 9}, 
                       style= {"margin-top": "-60px",
                              }),
-        dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/Vacunas/blob/main/Mapa_labsW.png?raw=true"),
-                      lg={ "offset": 2, "size": 4}, 
-                      style= {"margin-top": "-350px",
-                             }),
+#        dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/Vacunas/blob/main/Mapa_labsW.png?raw=true"),
+#                      lg={ "offset": 2, "size": 4}, 
+#                      style= {"margin-top": "-350px",
+#                             }),
             
 
         ]),
