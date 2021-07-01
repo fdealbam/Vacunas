@@ -1,5 +1,3 @@
-# Vacunas 
-
 import dash
 import matplotlib.pyplot as plt 
 import dash_bootstrap_components as dbc
@@ -53,6 +51,14 @@ tabla_detalle = pd.read_csv("https://raw.githubusercontent.com/fdealbam/Vacunas/
 tabla_detalle.rename(columns={'QuerÃ©taro': 'Querétaro' },inplace=True, errors='ignore')
 tabla_detalle.rename(columns={'FarmacÃ©utica': 'Farmacéutica' },inplace=True,errors='ignore')
 tabla_detalle["Dosis envasadas"] = tabla_detalle["Dosis envasadas"].apply(lambda x : "{:,}".format(x))
+
+###################################################################################################################
+#4
+#Tabla2 detalle vacunas   si está en github 11 hours ago
+tabla_envios = pd.read_csv("https://raw.githubusercontent.com/fdealbam/Vacunas/main/tabla%20donaciones%20vacunas.csv", encoding= "Latin-1")
+#tabla_envios.rename(columns={'QuerÃ©taro': 'Querétaro' },inplace=True, errors='ignore')
+#tabla_envios.rename(columns={'FarmacÃ©utica': 'Farmacéutica' },inplace=True,errors='ignore')
+tabla_envios["Dosis "] = tabla_envios["Dosis "].apply(lambda x : "{:,}".format(x))
 
 ##########################################################################################################################
 
@@ -221,21 +227,20 @@ vac_meses['Mes'].replace(13.0,'Diciembre',inplace=True)
 vac_meses['Mes']=vac_meses['Mes'].astype(str)
 
 vac_meses['Mes_y']=vac_meses['Mes']+vac_meses['Year']
-vac_meses_g1=vac_meses.groupby('Mes_y')['Cantidad'].sum()
-pd.DataFrame(vac_meses_g1).to_csv('0000proceso.csv')
+vac_meses_g=vac_meses.groupby('Mes_y')['Cantidad'].sum()
+pd.DataFrame(vac_meses_g).to_csv('0000proceso.csv')
 vac_meses_g=pd.read_csv('0000proceso.csv')
 
 #Identificadores Cantidad
-sumdic_v = vac_meses_g.iloc[6]['Cantidad'] #al actualizar el mes, subir un punto
+sumdic_v = vac_meses_g.iloc[5]['Cantidad'] #al actualizar el mes, subir un punto
 sumene_v = vac_meses_g.iloc[1]['Cantidad']
 sumfeb_v = vac_meses_g.iloc[2]['Cantidad']
-summar_v = vac_meses_g.iloc[4]['Cantidad']
+summar_v = vac_meses_g.iloc[3]['Cantidad']
 sumabr_v = vac_meses_g.iloc[0]['Cantidad']
-summay_v = vac_meses_g.iloc[5]['Cantidad'] 
+summay_v = vac_meses_g.iloc[4]['Cantidad'] 
 sumjun_v = vac_meses_g.iloc[3]['Cantidad']
-#sumjun_v = vac_meses_g.iloc[4]['Cantidad']
 # al actualizar el mes, utilizar el valor.iloc antiguo de sumdic_v
-#Verificar meses
+
 ########################################################################## Para graficas mensuales
 
 vac_meses_g_pie = vac_meses_g
@@ -245,11 +250,7 @@ vac_meses_T = vac_meses_g_pie.T
 vac_meses_T.drop(['Mes_y'], inplace=True)
 vac_meses_T.to_csv('0000proceso.csv')
 
-vac_meses_T1=pd.read_csv('0000proceso.csv', names=['id', 'Abril2021','Enero2021', 'Febrero2021',
-                                                   'Junio2021', 'Marzo2021', 'Mayo2021', 'Diciembre2020',
-                                                 #"Julio2021",#"Agosto2021",
-                                                   #"Septiembre2021"
-                                                   ])
+vac_meses_T1=pd.read_csv('0000proceso.csv', names=['id','Abril2021','Enero2021','Febrero2021','Marzo2021','Mayo2021','Junio2021','Diciembre2020'])
 vac_meses_T1.drop([0], inplace=True,  errors='ignore')  #Ae errors='ignore'
 
 
@@ -262,17 +263,17 @@ figvac_diciembre.update_layout(paper_bgcolor='rgba(0,0,0,0)',
                   uniformtext_minsize=6,
                   uniformtext_mode='hide',
                   autosize=True,
-                               width=300,
-                  height=300,
                   title_font_size = 6,
                   font_color="white",
                   title_font_color="white",
+                               width=300,
+                  height=300,
                   margin = dict(autoexpand= False),
                           showlegend=False),
     
 colors = ['#9D2449']
 
-figvac_diciembre.update_traces(rotation=40,
+figvac_diciembre.update_traces(rotation=43,
                                marker=dict(colors=colors))
 
 
@@ -285,17 +286,17 @@ figvac_enero.update_layout(paper_bgcolor='rgba(0,0,0,0)',
                   uniformtext_minsize=6,
                   uniformtext_mode='hide',
                   autosize=True,
-                           width=300,
-                  height=300,
                   title_font_size = 6,
                   font_color="white",
                   title_font_color="white",
+                           width=300,
+                  height=300,
                   margin = dict(autoexpand= False),
                           showlegend=False),
     
 colors = ['#9D2449']
 
-figvac_enero.update_traces(rotation=0,
+figvac_enero.update_traces(rotation=43,
                                marker=dict(colors=colors))
 
 
@@ -309,17 +310,17 @@ figvac_febrero.update_layout(paper_bgcolor='rgba(0,0,0,0)',
                   uniformtext_minsize=6,
                   uniformtext_mode='hide',
                   autosize=True,
-                             width=300,
-                  height=300,
                   title_font_size = 6,
                   font_color="white",
                   title_font_color="white",
+                             width=300,
+                  height=300,
                   margin = dict(autoexpand= False),
                           showlegend=False),
     
 colors = ['#9D2449']
 
-figvac_febrero.update_traces(rotation=10,
+figvac_febrero.update_traces(rotation=43,
                                marker=dict(colors=colors))
 
 
@@ -332,17 +333,17 @@ figvac_marzo.update_layout(paper_bgcolor='rgba(0,0,0,0)',
                   uniformtext_minsize=6,
                   uniformtext_mode='hide',
                   autosize=True,
-                           width=300,
-                  height=300,
                   title_font_size = 6,
                   font_color="white",
                   title_font_color="white",
+                           width=300,
+                  height=300,
                   margin = dict(autoexpand= False),
                           showlegend=False),
     
 colors = ['#9D2449']
 
-figvac_marzo.update_traces(rotation=35,
+figvac_marzo.update_traces(rotation=43,
                                marker=dict(colors=colors))
 
 
@@ -356,16 +357,16 @@ figvac_abril.update_layout(paper_bgcolor='rgba(0,0,0,0)',
                   uniformtext_mode='hide',
                   autosize=True,
                   title_font_size = 6,
-                           width=300,
-                  height=300,
                   font_color="white",
                   title_font_color="white",
+                           width=300,
+                  height=300,
                   margin = dict(autoexpand= False),
                           showlegend=False),
     
 colors = ['#9D2449']
 
-figvac_abril.update_traces(rotation=36,
+figvac_abril.update_traces(rotation=43,
                                marker=dict(colors=colors))
 
 #### mes Abril
@@ -378,10 +379,10 @@ figvac_mayo.update_layout(paper_bgcolor='rgba(0,0,0,0)',
                   uniformtext_mode='hide',
                   autosize=True,
                   title_font_size = 6,
-                          width=300,
-                  height=300,
                   font_color="white",
                   title_font_color="white",
+                          width=300,
+                  height=300,
                   margin = dict(autoexpand= False),
                           showlegend=False),
     
@@ -412,6 +413,7 @@ colors = ['#9D2449']
 
 figvac_junio.update_traces(rotation=43,
                                marker=dict(colors=colors))
+
 
 ########################################################################## Para la APP 
 #-------------------------------------GRAFICA1 DE FARMACEUTICA para TABLA1
@@ -507,6 +509,17 @@ vacunas_flyies1_bien["Fecha"] = vacunas_flyies1_bien["Fecha"].dt.strftime("%d/%m
 
 
 
+
+######################################################### Para la APP 
+
+#-------------------------------------TABLAS MESES TABLA2
+table_sumameses = [
+    html.Thead(html.Tr([html.Th(), html.Th(), html.Th(), html.Th(), html.Th()]))] 
+row1 = html.Tr([html.Td("Diciembre"),html.Td("Enero"), html.Td("Febrero"),  html.Td("Marzo"), html.Td("Abril")])
+
+row2 = html.Tr([html.Td([str(f"{sumdic_v:,d}")]), html.Td([str(f"{sumene_v:,d}")]), html.Td([str(f"{sumfeb_v:,d}")]), html.Td([str(f"{summar_v:,d}")]), html.Td([str(f"{sumabr_v:,d}")])])
+
+table_bodymeses = [html.Tbody([row1, row2])]
 
 
 ######################################################### Promedio diario
@@ -691,7 +704,7 @@ body = html.Div([
             data=vuelos.to_dict('records'),
                     fixed_rows={'headers': True,"striped": True,},
                     style_table={'height': '300px', 'overflowY': 'auto',"striped": True,},
-                    style_cell={'font-size':14, 'font-family':'Nunito Sans',"striped": True,}, 
+                    style_cell={'fontSize':12, 'font-family':'Nunito Sans',"striped": True,}, 
                     style_header = {'border': 'none','fontWeight': 'condensed'},
                     style_data = {'border': 'none', "striped": True, },
                     style_data_conditional=[{'if': {'row_index': 'odd'},
@@ -765,7 +778,7 @@ body = html.Div([
                 
                     style_table={'height': '300px', "striped": True,},
                     style_cell={#"align-text": "left",
-                        'font-size':14, 'font-family':'Nunito Sans',"striped": True,}, 
+                        'fontSize':12, 'font-family':'Nunito Sans',"striped": True,}, 
                     style_header = {'border': 'none','fontWeight': 'bold'},
                     style_data = {'border': 'none', "striped": True, },
                     style_data_conditional=[{'if': {'row_index': 'odd'},
@@ -778,8 +791,6 @@ body = html.Div([
             "margin-bottom": "5px",      
             'width': '750px' }),            
 
-    html.Br(),
-    html.Br(),
     html.Br(),
       
 
@@ -798,15 +809,15 @@ body = html.Div([
                   width={ "offset":1, #"size": 5 
                         "margin-right": "-120px"}),
     
-        dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/Vacunas/blob/main/laboratoriosvacunas.jpg?raw=true"),
-                       #https://github.com/fdealbam/Vacunas/blob/main/imagenmundi.jpg
-                      lg={ "offset": 2, "size": 8}, 
-                      style= {"margin-top": "0px",
-                             }),
-#        dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/Vacunas/blob/main/Mapa_labsW.png?raw=true"),
-#                      lg={ "offset": 2, "size": 4}, 
-#                      style= {"margin-top": "-350px",
+#        dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/Vacunas/blob/man/laboratoriosvacunas.jpg?raw=true"),
+#                       #https://github.com/fdealbam/Vacunas/blob/main/imagenmundi.jpg
+#                      lg={ "offset": 6, "size": 5}, 
+#                      style= {"margin-top": "-60px",
 #                             }),
+        dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/Vacunas/blob/main/Mapa_labsW.png?raw=true"),
+                      lg={ "offset": 2, "size": 4}, 
+                      style= {"margin-top": "-350px",
+                             }),
             
 
         ]),
@@ -831,7 +842,7 @@ body = html.Div([
                 
                     style_table={'height': '300px', "striped": True,},
                     style_cell={#"align-text": "left",
-                        'font-size':14, 'font-family':'Nunito Sans',"striped": True,}, 
+                        'fontSize':12, 'font-family':'Nunito Sans',"striped": True,}, 
                     style_header = {'border': 'none','fontWeight': 'bold'},
                     style_data = {'border': 'none', "striped": True, },
                     style_data_conditional=[{'if': {'row_index': 'odd'},
@@ -874,13 +885,42 @@ body = html.Div([
                       style= {"margin-top": "-50px"}),
     ]),
     
-   
+    html.Br(),
+    html.Br(),
     
     
+    
+    dbc.Row([
+        dbc.Col(html.H3('¿A qué países se han enviado vacunas?',
+                        className='card-title',style={'textAlign': 'start'} ),
+                style={"color": "#91210C", },
+                width={ "offset":1 },),]),
+    
+    
+    dbc.Row(
+        [
+          dbc.Col(dash_table.DataTable(
+                id='table6',
+            columns=[{"name": i, "id": i} for i in tabla_envios.columns],
+            data=tabla_envios.to_dict('records'),
+                
+                    style_table={'height': '300px', "striped": True,},
+                    style_cell={#"align-text": "left",
+                        'fontSize':12, 'font-family':'Nunito Sans',"striped": True,}, 
+                    style_header = {'border': 'none','fontWeight': 'bold'},
+                    style_data = {'border': 'none', "striped": True, },
+                    style_data_conditional=[{'if': {'row_index': 'odd'},
+                                             'backgroundColor': 'rgb(248, 248, 248)'},
+                ])),
+ 
+        ], style={'margin-top': '9px',
+            'margin-left': '100px',
+            'margin-right': '0px',
+            "margin-bottom": "5px",      
+            'width': '750px' }), 
+    
+       html.Br(),
 
-  
-
-#        
     
 # ###################### SECCION . NUMERALIA
 
@@ -947,12 +987,12 @@ body = html.Div([
  
     
         dbc.Row(
-            [dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/Vacunas/blob/main/SRE.JPG?raw=true?raw=true"),
-                        width={'size': 1,  "offset": 1 }),
+            [#dbc.Col(dbc.CardImg(src="https://github.om/fdealbam/Vacunas/blob/main/SRE.JPG?raw=true?raw=true"),
+             #           width={'size': 1,  "offset": 1 }),
              dbc.Col(html.H6("Secretaría de Relaciones Exteriores, "
                             "Subsecretaría para Asuntos Multilaterales y "
                             "Derechos Humanos"),
-                        width={'size': 6, 'offset' : 0}), 
+                        width={'size': 6, 'offset' : 2}), 
         ],justify="center"),
     
     
@@ -967,10 +1007,7 @@ body = html.Div([
 
 
     
-app.layout = html.Div([body],
-                              style={'width': '1850px',
-                                    #"background-color": "lightgray"
-                                    })
+app.layout = html.Div([body])
 
 from application.dash import app
 from settings import config
