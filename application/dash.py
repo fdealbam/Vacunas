@@ -797,7 +797,12 @@ body = html.Div([
     
 #############    
     
-        
+
+    html.Br(),
+    html.Br(),
+    html.Br(),
+      
+
 
 ###############    
     
@@ -809,18 +814,21 @@ body = html.Div([
                   width={ "offset":1, #"size": 5 
                         "margin-right": "-120px"}),
     
-#        dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/Vacunas/blob/man/laboratoriosvacunas.jpg?raw=true"),
-#                       #https://github.com/fdealbam/Vacunas/blob/main/imagenmundi.jpg
-#                      lg={ "offset": 6, "size": 5}, 
-#                      style= {"margin-top": "-60px",
-#                             }),
-        dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/Vacunas/blob/main/Mapa_labsW.png?raw=true"),
-                      lg={ "offset": 2, "size": 4}, 
-                      style= {"margin-top": "-350px",
+        dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/Vacunas/blob/main/laboratoriosvacunas.jpg?raw=true"),
+                       #https://github.com/fdealbam/Vacunas/blob/main/imagenmundi.jpg
+                      lg={ "offset": 2, "size": 8}, 
+                      style= {"margin-top": "0px",
                              }),
+#        dbc.Col(dbc.CardImg(src="https://github.com/fdealbam/Vacunas/blob/main/Mapa_labsW.png?raw=true"),
+#                      lg={ "offset": 2, "size": 4}, 
+#                      style= {"margin-top": "-350px",
+#                             }),
             
 
         ]),
+    
+    
+    html.Br(),
                 
 
 #    html.Br(),
