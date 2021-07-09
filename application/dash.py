@@ -238,8 +238,8 @@ sumfeb_v = vac_meses_g.iloc[2]['Cantidad']
 summar_v = vac_meses_g.iloc[5]['Cantidad']
 sumabr_v = vac_meses_g.iloc[0]['Cantidad']
 summay_v = vac_meses_g.iloc[6]['Cantidad'] 
-sumjun_v = vac_meses_g.iloc[3]['Cantidad']
-sumjul_v = vac_meses_g.iloc[4]['Cantidad']
+sumjun_v = vac_meses_g.iloc[4]['Cantidad']
+sumjul_v = vac_meses_g.iloc[3]['Cantidad']
 # al actualizar el mes, utilizar el valor.iloc antiguo de sumdic_v
 
 ########################################################################## Para graficas mensuales
