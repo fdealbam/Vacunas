@@ -232,14 +232,14 @@ pd.DataFrame(vac_meses_g).to_csv('0000proceso.csv')
 vac_meses_g=pd.read_csv('0000proceso.csv')
 
 #Identificadores Cantidad
-sumdic_v = vac_meses_g.iloc[6]['Cantidad'] #al actualizar el mes, subir un punto
+sumdic_v = vac_meses_g.iloc[7]['Cantidad'] #al actualizar el mes, subir un punto
 sumene_v = vac_meses_g.iloc[1]['Cantidad']
 sumfeb_v = vac_meses_g.iloc[2]['Cantidad']
-summar_v = vac_meses_g.iloc[3]['Cantidad']
+summar_v = vac_meses_g.iloc[5]['Cantidad']
 sumabr_v = vac_meses_g.iloc[0]['Cantidad']
-summay_v = vac_meses_g.iloc[4]['Cantidad'] 
+summay_v = vac_meses_g.iloc[6]['Cantidad'] 
 sumjun_v = vac_meses_g.iloc[3]['Cantidad']
-sumjul_v = vac_meses_g.iloc[5]['Cantidad']
+sumjul_v = vac_meses_g.iloc[4]['Cantidad']
 # al actualizar el mes, utilizar el valor.iloc antiguo de sumdic_v
 
 ########################################################################## Para graficas mensuales
