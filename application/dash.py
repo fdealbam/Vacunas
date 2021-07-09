@@ -232,13 +232,14 @@ pd.DataFrame(vac_meses_g).to_csv('0000proceso.csv')
 vac_meses_g=pd.read_csv('0000proceso.csv')
 
 #Identificadores Cantidad
-sumdic_v = vac_meses_g.iloc[5]['Cantidad'] #al actualizar el mes, subir un punto
+sumdic_v = vac_meses_g.iloc[6]['Cantidad'] #al actualizar el mes, subir un punto
 sumene_v = vac_meses_g.iloc[1]['Cantidad']
 sumfeb_v = vac_meses_g.iloc[2]['Cantidad']
 summar_v = vac_meses_g.iloc[3]['Cantidad']
 sumabr_v = vac_meses_g.iloc[0]['Cantidad']
 summay_v = vac_meses_g.iloc[4]['Cantidad'] 
 sumjun_v = vac_meses_g.iloc[3]['Cantidad']
+sumjul_v = vac_meses_g.iloc[5]['Cantidad']
 # al actualizar el mes, utilizar el valor.iloc antiguo de sumdic_v
 
 ########################################################################## Para graficas mensuales
@@ -250,7 +251,8 @@ vac_meses_T = vac_meses_g_pie.T
 vac_meses_T.drop(['Mes_y'], inplace=True)
 vac_meses_T.to_csv('0000proceso.csv')
 
-vac_meses_T1=pd.read_csv('0000proceso.csv', names=['id','Abril2021','Enero2021','Febrero2021','Marzo2021','Mayo2021','Junio2021','Diciembre2020'])
+vac_meses_T1=pd.read_csv('0000proceso.csv', names=['id','Abril2021','Enero2021',
+                                                   'Febrero2021','Marzo2021','Mayo2021','Junio2021','Diciembre2020'])
 vac_meses_T1.drop([0], inplace=True,  errors='ignore')  #Ae errors='ignore'
 
 
@@ -413,6 +415,29 @@ colors = ['#9D2449']
 
 figvac_junio.update_traces(rotation=43,
                                marker=dict(colors=colors))
+
+#### mes julio
+figvac_julio = px.pie(vac_meses_T1, values='Julio2021', names='id',
+                color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
+
+figvac_julio.update_layout(paper_bgcolor='rgba(0,0,0,0)',
+                  plot_bgcolor='rgba(0,0,0,0)',
+                  uniformtext_minsize=6,
+                  uniformtext_mode='hide',
+                  autosize=True,
+                  title_font_size = 6,
+                  font_color="white",
+                  title_font_color="white",
+                           width=300,
+                  height=300,
+                  margin = dict(autoexpand= False),
+                          showlegend=False),
+    
+colors = ['#9D2449']
+
+figvac_julio.update_traces(rotation=43,
+                               marker=dict(colors=colors))
+
 
 
 ########################################################################## Para la APP 
@@ -670,6 +695,9 @@ body = html.Div([
                                 ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"40px"},disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Junio"),html.H3([str(f'{sumjun_v:,d}')]),
                                   html.P(dcc.Graph(figure=figvac_junio,style={"width":190, "margin-left": "-80px"})),
+                                ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"40px"}, disabled=True)),
+            dbc.Col(dbc.Button(([html.H6("Julio"),html.H3([str(f'{sumjul_v:,d}')]),
+                                  html.P(dcc.Graph(figure=figvac_julio,style={"width":190, "margin-left": "-80px"})),
                                 ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"40px"}, disabled=True)),
 
            ], align='center'),
@@ -1016,7 +1044,6 @@ body = html.Div([
 
     
 app.layout = html.Div([body])
-
 from application.dash import app
 from settings import config
 
