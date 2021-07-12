@@ -117,3 +117,126 @@ Arribo,Fecha,Vacuna,Farmacéutica,Cantidad
 116,09/07/2021,AstraZeneca,AstraZeneca,"832,100"
 117,10/07/2021,Sinovac,Sinovac,"1,000,000"
 118,10/07/2021,CanSino,CanSino Biologics,"219,300"
+
+1,23/12/2020,Ciudad de México,2925,Pfizer-BioNTech
+2,26/12/2020,Monterrey,8775,Pfizer-BioNTech
+3,26/12/2020,Ciudad de México,34125,Pfizer-BioNTech
+4,30/12/2020,Ciudad de México,7800,Pfizer-BioNTech
+5,05/01/2021,Ciudad de México,44850,Pfizer-BioNTech
+6,05/01/2021,Monterrey,8775,Pfizer-BioNTech
+7,12/01/2021,Ciudad de México,439725,Pfizer-BioNTech
+8,19/01/2021,Monterrey,5850,Pfizer-BioNTech
+9,19/01/2021,Ciudad de México,213525,Pfizer-BioNTech
+10,14/02/2021,Ciudad de México,870000,AstraZeneca
+11,16/02/2021,Monterrey,4875,Pfizer-BioNTech
+12,16/02/2021,Ciudad de México,486525,Pfizer-BioNTech
+13,20/02/2021,Ciudad de México,200000,Sinovac
+14,22/02/2021,Ciudad de México,200000,Sputnik V
+15,23/02/2021,Monterrey,125775,Pfizer-BioNTech
+16,23/02/2021,Ciudad de México,386100,Pfizer-BioNTech
+17,27/02/2021,Ciudad de México,800000,Sinovac
+18,02/03/2021,Guadalajara,156000,Pfizer-BioNTech
+19,02/03/2021,Monterrey,106275,Pfizer-BioNTech
+20,02/03/2021,Ciudad de México,381225,Pfizer-BioNTech
+21,02/03/2021,Querétaro,208650,Pfizer-BioNTech
+22,09/03/2021,Guadalajara,108225,Pfizer-BioNTech
+23,09/03/2021,Monterrey,72150,Pfizer-BioNTech
+24,09/03/2021,Ciudad de México,275925,Pfizer-BioNTech
+25,09/03/2021,Querétaro,144300,Pfizer-BioNTech
+26,10/03/2021,Ciudad de México,200000,Sputnik V
+27,13/03/2021,Ciudad de México,1000000,Sinovac
+28,16/03/2021,Guadalajara,121875,Pfizer-BioNTech
+29,16/03/2021,Monterrey,103350,Pfizer-BioNTech
+30,16/03/2021,Ciudad de México,217425,Pfizer-BioNTech
+31,16/03/2021,Querétaro,225225,Pfizer-BioNTech
+32,18/03/2021,Ciudad de México,1000000,Sinovac
+33,22/03/2021,Querétaro,955720,CanSino Biologics
+34,23/03/2021,Ciudad de México,487500,Pfizer-BioNTech
+35,24/03/2021,Ciudad de México,170625,Pfizer-BioNTech
+36,25/03/2021,Ciudad de México,1000000,Sinovac
+37,27/03/2021,Ciudad de México,65000,CanSino Biologics
+38,28/03/2021,Ciudad de México,1510600,AstraZeneca
+39,30/03/2021,Ciudad de México,487500,Pfizer-BioNTech
+40,31/03/2021,Ciudad de México,500000,Sputnik V
+41,31/03/2021,Ciudad de México,145275,Pfizer-BioNTech
+42,01/04/2021,Ciudad de México,1208700,AstraZeneca
+43,05/04/2021,Ciudad de México,487500,Pfizer-BioNTech
+44,07/04/2021,Querétaro,432260,CanSino Biologics
+45,08/04/2021,Ciudad de México,487500,Pfizer-BioNTech
+46,09/04/2021,Ciudad de México,327600,Pfizer-BioNTech
+47,12/04/2021,Ciudad de México,487500,Pfizer-BioNTech
+48,15/04/2021,Ciudad de México,500000,Sinovac
+49,15/04/2021,Ciudad de México,487500,Pfizer-BioNTech
+50,16/04/2021,Querétaro,666420,CanSino Biologics
+51,16/04/2021,Ciudad de México,328575,Pfizer-BioNTech
+52,21/04/2021,Ciudad de México,200000,Sputnik V
+53,21/04/2021,Ciudad de México,487500,Pfizer-BioNTech
+54,21/04/2021,Ciudad de México,1075200,AstraZeneca
+55,22/04/2021,Ciudad de México,374400,Pfizer-BioNTech
+56,23/04/2021,Querétaro,579390,CanSino Biologics
+57,24/04/2021,Ciudad de México,500000,Sinovac
+58,28/04/2021,Ciudad de México,487500,Pfizer-BioNTech
+59,29/04/2021,Ciudad de México,585000,Pfizer-BioNTech
+60,29/04/2021,Ciudad de México,800000,Sputnik V
+61,30/04/2021,Ciudad de México,938340,Pfizer-BioNTech
+62,30/04/2021,Querétaro,502630,CanSino Biologics
+63,06/05/2021,Ciudad de México,1000000,Sinovac
+64,07/05/2021,Querétaro,669330,CanSino Biologics
+65,11/05/2021,Ciudad de México,585000,Pfizer-BioNTech
+66,12/05/2021,Ciudad de México,250380,Pfizer-BioNTech
+67,12/05/2021,Querétaro,208220,CanSino Biologics
+68,13/05/2021,Ciudad de México,585000,Pfizer-BioNTech
+69,15/05/2021,Ciudad de México,35000,CanSino Biologics
+70,15/05/2021,Querétaro,411510,CanSino Biologics
+71,17/05/2021,Ciudad de México,500000,Sputnik V
+72,19/05/2021,Ciudad de México,585000,Pfizer-BioNTech
+73,19/05/2021,Querétaro,125350,CanSino Biologics
+74,20/05/2021,Ciudad de México,114660,Pfizer-BioNTech
+75,20/05/2021,Ciudad de México,585000,Pfizer-BioNTech
+76,20/05/2021,Ciudad de México,1000000,Sinovac
+77,20/05/2021,Ciudad de México,1394800,AstraZeneca
+78,23/05/2021,Ciudad de México,709300,AstraZeneca
+79,25/05/2021,Ciudad de México,114660,Pfizer-BioNTech
+80,26/05/2021,Ciudad de México,585000,Pfizer-BioNTech
+81,27/05/2021,Ciudad de México,585000,Pfizer-BioNTech
+82,27/05/2021,Ciudad de México,2229600,AstraZeneca
+83,30/05/2021,Ciudad de México,2195400,AstraZeneca
+84,01/06/2021,Ciudad de México,288990,Pfizer-BioNTech
+85,02/06/2021,Ciudad de México,585000,Pfizer-BioNTech
+86,03/06/2021,Ciudad de México,585000,Pfizer-BioNTech
+87,03/06/2021,Ciudad de México,1000000,Sinovac
+88,06/06/2021,Ciudad de México,1000000,Sputnik V
+89,08/06/2021,Ciudad de México,288990,Pfizer-BioNTech
+90,09/06/2021,Ciudad de México,585000,Pfizer-BioNTech
+91,10/06/2021,Ciudad de México,585000,Pfizer-BioNTech
+92,11/06/2021,Ciudad de México,300000,Sputnik V
+93,14/06/2021,Ciudad de México,1100000,AstraZeneca
+94,14/06/2021,Ciudad de México,50000,Sputnik V
+95,15/06/2021,Ciudad de México,290160,Pfizer-BioNTech
+96,15/06/2021,Ciudad de México,1350000,Janssen
+97,16/06/2021,Ciudad de México,585000,Pfizer-BioNTech
+98,17/06/2021,Ciudad de México,585000,Pfizer-BioNTech
+99,20/06/2021,Ciudad de México,1221300,AstraZeneca
+100,22/06/2021,Ciudad de México,290160,Pfizer-BioNTech
+101,23/06/2021,Ciudad de México,585000,Pfizer-BioNTech
+102,24/06/2021,Ciudad de México,585000,Pfizer-BioNTech
+103,25/06/2021,Estado de México,808500,AstraZeneca
+104,25/06/2021,Querétaro,212890,CanSino Biologics
+29/06/2021,Ciudad de México,291330,Pfizer-BioNTech
+29/06/2021,Estado de México,899200,AstraZeneca
+30/06/2021,Estado de México,856400,AstraZeneca
+30/06/2021,Ciudad de México,585000,Pfizer-BioNTech
+30/06/2021,Ciudad de México,1000000,Sinovac
+30/06/2021,Ciudad de México,350000,Sputnik V
+01/07/2021,Ciudad de México,585000,Pfizer-BioNTech
+02/07/2021,Ciudad de México,2395300,AstraZeneca
+05/07/2021,Estado de México,907000,AstraZeneca
+06/07/2021,Estado de México,910900,AstraZeneca
+06/07/2021,Querétaro,153260,CanSino Biologics
+07/07/2021,Ciudad de México,232830,Pfizer-BioNTech
+07/07/2021,Ciudad de México,1000000,Sinovac
+08/07/2021,Ciudad de México,1000000,Sinovac
+09/07/2021,Estado de México,917300,AstraZeneca
+09/07/2021,Estado de México,832100,AstraZeneca
+10/07/2021,Ciudad de México,1000000,Sinovac
+10/07/2021,Querétaro,219300,CanSino Biologics
