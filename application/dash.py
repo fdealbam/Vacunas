@@ -232,14 +232,15 @@ pd.DataFrame(vac_meses_g).to_csv('0000proceso.csv')
 vac_meses_g=pd.read_csv('0000proceso.csv')
 
 #Identificadores Cantidad
-sumdic_v = vac_meses_g.iloc[7]['Cantidad'] #al actualizar el mes, subir un punto
-sumene_v = vac_meses_g.iloc[1]['Cantidad']
-sumfeb_v = vac_meses_g.iloc[2]['Cantidad']
-summar_v = vac_meses_g.iloc[5]['Cantidad']
+sumdic_v = vac_meses_g.iloc[8]['Cantidad'] #al actualizar el mes, subir un punto
+sumene_v = vac_meses_g.iloc[2]['Cantidad']
+sumfeb_v = vac_meses_g.iloc[3]['Cantidad']
+summar_v = vac_meses_g.iloc[6]['Cantidad']
 sumabr_v = vac_meses_g.iloc[0]['Cantidad']
-summay_v = vac_meses_g.iloc[6]['Cantidad'] 
-sumjun_v = vac_meses_g.iloc[4]['Cantidad']
-sumjul_v = vac_meses_g.iloc[3]['Cantidad']
+summay_v = vac_meses_g.iloc[7]['Cantidad'] 
+sumjun_v = vac_meses_g.iloc[5]['Cantidad']
+sumjul_v = vac_meses_g.iloc[4]['Cantidad']
+sumago_v = vac_meses_g.iloc[1]['Cantidad']
 # al actualizar el mes, utilizar el valor.iloc antiguo de sumdic_v
 
 ########################################################################## Para graficas mensuales
@@ -251,7 +252,7 @@ vac_meses_T = vac_meses_g_pie.T
 vac_meses_T.drop(['Mes_y'], inplace=True)
 vac_meses_T.to_csv('0000proceso.csv')
 
-vac_meses_T1=pd.read_csv('0000proceso.csv', names=['id','Abril2021','Enero2021',
+vac_meses_T1=pd.read_csv('0000proceso.csv', names=['id','Abril2021',"Agosto2021",'Enero2021',
                                                    'Febrero2021','Julio2021','Junio2021','Marzo2021','Mayo2021',
                                                    'Diciembre2020'])
 vac_meses_T1.drop([0], inplace=True,  errors='ignore')  #Ae errors='ignore'
@@ -438,7 +439,27 @@ colors = ['#9D2449']
 
 figvac_julio.update_traces(rotation=43,
                                marker=dict(colors=colors))
+#### mes agosto
+figvac_agosto = px.pie(vac_meses_T1, values='Agosto2021', names='id',
+                color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
 
+figvac_agosto.update_layout(paper_bgcolor='rgba(0,0,0,0)',
+                  plot_bgcolor='rgba(0,0,0,0)',
+                  uniformtext_minsize=6,
+                  uniformtext_mode='hide',
+                  autosize=True,
+                  title_font_size = 6,
+                  font_color="white",
+                  title_font_color="white",
+                           width=300,
+                  height=300,
+                  margin = dict(autoexpand= False),
+                          showlegend=False),
+    
+colors = ['#9D2449']
+
+figvac_agosto.update_traces(rotation=43,
+                               marker=dict(colors=colors))
 
 
 ########################################################################## Para la APP 
@@ -676,31 +697,59 @@ body = html.Div([
                         
             dbc.Row([
             dbc.Col(dbc.Button(([html.H6("Diciembre"),html.H3([str(f'{sumdic_v:,d}')]),
-                                html.P(dcc.Graph(figure=figvac_diciembre,style={"width":210, "margin-left": "-80px"})),
+                                html.P(dcc.Graph(figure=figvac_diciembre,style={#"width":210,
+                                    "margin-left": "-80px"})),
                                 ]),style={"height":"350px",  "background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"10px"
                                          }, disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Enero"),html.H3([str(f'{sumene_v:,d}')]), 
-                                html.P(dcc.Graph(figure=figvac_enero,style={"width":210, "margin-left": "-80px"})),
+                                html.P(dcc.Graph(figure=figvac_enero,style={#"width":210, 
+                                    "margin-left": "-80px"})),
                                 ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"10px"},disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Febrero"),html.H3([str(f'{sumfeb_v:,d}')]), 
-                                html.P(dcc.Graph(figure=figvac_febrero,style={"width":160, "margin-left": "-80px"})),
+                                html.P(dcc.Graph(figure=figvac_febrero,style={#"width":210, 
+                                    "margin-left": "-80px"})),
                                 ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"10px"}, disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Marzo"),html.H3([str(f'{summar_v:,d}')]),
-                                  html.P(dcc.Graph(figure=figvac_marzo,style={"width":160, "margin-left": "-80px"})),
+                                  html.P(dcc.Graph(figure=figvac_marzo,style={#"width":210, 
+                                      "margin-left": "-80px"})),
                                 ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"10px"},disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Abril"),html.H3([str(f'{sumabr_v:,d}')]),
-                                  html.P(dcc.Graph(figure=figvac_abril,style={"width":160, "margin-left": "-80px"})),
+                                  html.P(dcc.Graph(figure=figvac_abril,style={#"width":210,
+                                      "margin-left": "-80px"})),
                                 ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"10px"}, disabled=True)),
+             ], align='center'),
+    html.Br(),
+    html.Br(),
+    html.Br(),
+               dbc.Row([
             dbc.Col(dbc.Button(([html.H6("Mayo"),html.H3([str(f'{summay_v:,d}')], style={"color":"red"}),
-                                  html.P(dcc.Graph(figure=figvac_mayo,style={"width":160, "margin-left": "-80px"})),
-                                ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"10px"},disabled=True)),
+                                  html.P(dcc.Graph(figure=figvac_mayo,style={#"width":220,
+                                      "margin-left": "-80px"})),
+                                ]),style={"height":"350px","background-color":"white",
+                                          "box-shadow": "10px 20px 30px black", "margin-left":"100px"},disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Junio"),html.H3([str(f'{sumjun_v:,d}')]),
-                                  html.P(dcc.Graph(figure=figvac_junio,style={"width":160, "margin-left": "-80px"})),
-                                ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"10px"}, disabled=True)),
+                                  html.P(dcc.Graph(figure=figvac_junio,style={#"width":220,
+                                     # "margin-left": "-80px"
+                                  })),
+                                ]),style={"height":"350px","background-color":"white",
+                                          "box-shadow": "10px 20px 30px black", #"margin-left":"10px"
+                                         }, disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Julio"),html.H3([str(f'{sumjul_v:,d}')]),
-                                  html.P(dcc.Graph(figure=figvac_julio,style={"width":160, "margin-left": "-80px"})),
-                                ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"10px"}, disabled=True)),
-
+                                  html.P(dcc.Graph(figure=figvac_julio,style={#"width":220,
+                                     # "margin-left": "-80px"
+                                  })),
+                                ]),style={"height":"350px","background-color":"white",
+                                          "box-shadow": "10px 20px 30px black",# "margin-left":"10px"
+                                         }, disabled=True)),
+            dbc.Col(dbc.Button(([html.H6("Agosto"),html.H3([str(f'{sumago_v:,d}')]),
+                                  html.P(dcc.Graph(figure=figvac_agosto,style={#"width":220,
+                                     # "margin-left": "-80px"
+                                  })),
+                                ]),style={"height":"350px","background-color":"white",
+                                          "box-shadow": "10px 20px 30px black",# "margin-left":"10px",
+                                         "margin-right": "100px"}, disabled=True)),
+    
+            
            ], align='center'),
     
                
@@ -804,22 +853,21 @@ body = html.Div([
                 id='table3',
             columns=[{"name": i, "id": i} for i in tabla1.columns],
             data=tabla1.to_dict('records'),
-                
-                    style_table={'height': '300px', "striped": True,},
-                    style_cell={#"align-text": "left",
-                        'fontSize':12, 'font-family':'Nunito Sans',"striped": True,}, 
-                    style_header = {'border': 'none','fontWeight': 'bold'},
+            fixed_rows={'headers': True,"striped": True,},
+                    style_table={'height': '300px', 'overflowY': 'auto',"striped": True,},
+                    style_cell={'fontSize':14, 'font-family':'Nunito Sans',"striped": True,}, 
+                    style_header = {'border': 'none','fontWeight': 'condensed'},
                     style_data = {'border': 'none', "striped": True, },
                     style_data_conditional=[{'if': {'row_index': 'odd'},
-                                             'backgroundColor': 'rgb(248, 248, 248)'},
-                ])),
- 
-        ], style={'margin-top': '10px',
+                                             'backgroundColor': 'rgb(248, 248, 248)'}],
+                ), style={
+            'margin-top': '9px',
             'margin-left': '100px',
             'margin-right': '0px',
-            "margin-bottom": "5px",      
-            'width': '750px' }),            
-
+            'width': '750px',
+                   
+                }),           
+        ]),
     html.Br(),
       
 
@@ -876,21 +924,20 @@ body = html.Div([
                 id='table2',
             columns=[{"name": i, "id": i} for i in tabla_detalle.columns],
             data=tabla_detalle.to_dict('records'),
-                
-                    style_table={'height': '300px', "striped": True,},
-                    style_cell={#"align-text": "left",
-                        'fontSize':12, 'font-family':'Nunito Sans',"striped": True,}, 
-                    style_header = {'border': 'none','fontWeight': 'bold'},
+           fixed_rows={'headers': True,"striped": True,},
+                    style_table={'height': '300px', 'overflowY': 'auto',"striped": True,},
+                    style_cell={'fontSize':14, 'font-family':'Nunito Sans',"striped": True,}, 
+                    style_header = {'border': 'none','fontWeight': 'condensed'},
                     style_data = {'border': 'none', "striped": True, },
                     style_data_conditional=[{'if': {'row_index': 'odd'},
-                                             'backgroundColor': 'rgb(248, 248, 248)'},
-                ])),
- 
-        ], style={'margin-top': '9px',
+                                             'backgroundColor': 'rgb(248, 248, 248)'}],
+                ), style={
+            'margin-top': '9px',
             'margin-left': '100px',
             'margin-right': '0px',
-            "margin-bottom": "5px",      
-            'width': '750px' }),            
+            'width': '750px',
+                   
+                }),  ]),        
 
   
   
@@ -940,21 +987,20 @@ body = html.Div([
                 id='table6',
             columns=[{"name": i, "id": i} for i in tabla_envios.columns],
             data=tabla_envios.to_dict('records'),
-                
-                    style_table={'height': '300px', "striped": True,},
-                    style_cell={#"align-text": "left",
-                        'fontSize':12, 'font-family':'Nunito Sans',"striped": True,}, 
-                    style_header = {'border': 'none','fontWeight': 'bold'},
+             fixed_rows={'headers': True,"striped": True,},
+                    style_table={'height': '300px', 'overflowY': 'auto',"striped": True,},
+                    style_cell={'fontSize':14, 'font-family':'Nunito Sans',"striped": True,}, 
+                    style_header = {'border': 'none','fontWeight': 'condensed'},
                     style_data = {'border': 'none', "striped": True, },
                     style_data_conditional=[{'if': {'row_index': 'odd'},
-                                             'backgroundColor': 'rgb(248, 248, 248)'},
-                ])),
- 
-        ], style={'margin-top': '9px',
+                                             'backgroundColor': 'rgb(248, 248, 248)'}],
+                ), style={
+            'margin-top': '9px',
             'margin-left': '100px',
             'margin-right': '0px',
-            "margin-bottom": "5px",      
-            'width': '750px' }), 
+            'width': '750px',
+                   
+                }),]),
     
        html.Br(),
 
