@@ -8,7 +8,6 @@ Fecha,Arribo,Cantidad,Farmacéutica
 12/01/2021,Ciudad de México,439725,Pfizer-BioNTech
 19/01/2021,Monterrey,5850,Pfizer-BioNTech
 19/01/2021,Ciudad de México,213525,Pfizer-BioNTech
-14/02/2021,Ciudad de México,870000,AstraZeneca
 16/02/2021,Monterrey,4875,Pfizer-BioNTech
 16/02/2021,Ciudad de México,486525,Pfizer-BioNTech
 20/02/2021,Ciudad de México,200000,Sinovac
@@ -31,56 +30,56 @@ Fecha,Arribo,Cantidad,Farmacéutica
 16/03/2021,Ciudad de México,217425,Pfizer-BioNTech
 16/03/2021,Querétaro,225225,Pfizer-BioNTech
 18/03/2021,Ciudad de México,1000000,Sinovac
-22/03/2021,Querétaro,955720,CanSino Biologics
+22/03/2021,Querétaro,940470,CanSino Biologics
 23/03/2021,Ciudad de México,487500,Pfizer-BioNTech
 24/03/2021,Ciudad de México,170625,Pfizer-BioNTech
 25/03/2021,Ciudad de México,1000000,Sinovac
 27/03/2021,Ciudad de México,65000,CanSino Biologics
-28/03/2021,Ciudad de México,1510600,AstraZeneca
+28/03/2021,Ciudad de México,1500000,AstraZeneca
 30/03/2021,Ciudad de México,487500,Pfizer-BioNTech
 31/03/2021,Ciudad de México,500000,Sputnik V
 31/03/2021,Ciudad de México,145275,Pfizer-BioNTech
-01/04/2021,Ciudad de México,1208700,AstraZeneca
+01/04/2021,Ciudad de México,1219300,AstraZeneca
 05/04/2021,Ciudad de México,487500,Pfizer-BioNTech
-07/04/2021,Querétaro,432260,CanSino Biologics
+07/04/2021,Querétaro,434830,CanSino Biologics
 08/04/2021,Ciudad de México,487500,Pfizer-BioNTech
 09/04/2021,Ciudad de México,327600,Pfizer-BioNTech
 12/04/2021,Ciudad de México,487500,Pfizer-BioNTech
 15/04/2021,Ciudad de México,500000,Sinovac
 15/04/2021,Ciudad de México,487500,Pfizer-BioNTech
-16/04/2021,Querétaro,666420,CanSino Biologics
+16/04/2021,Querétaro,674740,CanSino Biologics
 16/04/2021,Ciudad de México,328575,Pfizer-BioNTech
 21/04/2021,Ciudad de México,200000,Sputnik V
 21/04/2021,Ciudad de México,487500,Pfizer-BioNTech
-21/04/2021,Ciudad de México,1075200,AstraZeneca
 22/04/2021,Ciudad de México,374400,Pfizer-BioNTech
-23/04/2021,Querétaro,579390,CanSino Biologics
+23/04/2021,Querétaro,582120,CanSino Biologics
 24/04/2021,Ciudad de México,500000,Sinovac
 28/04/2021,Ciudad de México,487500,Pfizer-BioNTech
 29/04/2021,Ciudad de México,585000,Pfizer-BioNTech
 29/04/2021,Ciudad de México,800000,Sputnik V
 30/04/2021,Ciudad de México,938340,Pfizer-BioNTech
-30/04/2021,Querétaro,502630,CanSino Biologics
+30/04/2021,Querétaro,505510,CanSino Biologics
+05/05/2021,Querétaro,203160,CanSino Biologics
 06/05/2021,Ciudad de México,1000000,Sinovac
-07/05/2021,Querétaro,669330,CanSino Biologics
+07/05/2021,Querétaro,470490,CanSino Biologics
 11/05/2021,Ciudad de México,585000,Pfizer-BioNTech
 12/05/2021,Ciudad de México,250380,Pfizer-BioNTech
 12/05/2021,Querétaro,208220,CanSino Biologics
+13/05/2021,Querétaro,203290,CanSino Biologics
 13/05/2021,Ciudad de México,585000,Pfizer-BioNTech
+14/05/2021,Querétaro,207020,CanSino Biologics
 15/05/2021,Ciudad de México,35000,CanSino Biologics
-15/05/2021,Querétaro,404590,CanSino Biologics
 17/05/2021,Ciudad de México,500000,Sputnik V
+17/05/2021,Querétaro,126790,CanSino Biologics
 19/05/2021,Ciudad de México,585000,Pfizer-BioNTech
-19/05/2021,Querétaro,125350,CanSino Biologics
 20/05/2021,Ciudad de México,114660,Pfizer-BioNTech
 20/05/2021,Ciudad de México,585000,Pfizer-BioNTech
 20/05/2021,Ciudad de México,1000000,Sinovac
-20/05/2021,Ciudad de México,1394800,AstraZeneca
+21/05/2021,Ciudad de México,1274800,AstraZeneca
 23/05/2021,Ciudad de México,709300,AstraZeneca
 25/05/2021,Ciudad de México,114660,Pfizer-BioNTech
 26/05/2021,Ciudad de México,585000,Pfizer-BioNTech
 27/05/2021,Ciudad de México,585000,Pfizer-BioNTech
-27/05/2021,Ciudad de México,2229600,AstraZeneca
 30/05/2021,Ciudad de México,2195400,AstraZeneca
 01/06/2021,Ciudad de México,288990,Pfizer-BioNTech
 02/06/2021,Ciudad de México,585000,Pfizer-BioNTech
@@ -102,10 +101,9 @@ Fecha,Arribo,Cantidad,Farmacéutica
 23/06/2021,Ciudad de México,585000,Pfizer-BioNTech
 24/06/2021,Ciudad de México,585000,Pfizer-BioNTech
 25/06/2021,Estado de México,808500,AstraZeneca
-25/06/2021,Querétaro,212890,CanSino Biologics
+26/06/2021,Querétaro,214290,CanSino Biologics
 29/06/2021,Ciudad de México,291330,Pfizer-BioNTech
 29/06/2021,Estado de México,899200,AstraZeneca
-30/06/2021,Estado de México,856400,AstraZeneca
 30/06/2021,Ciudad de México,585000,Pfizer-BioNTech
 30/06/2021,Ciudad de México,1000000,Sinovac
 30/06/2021,Ciudad de México,350000,Sputnik V
@@ -117,8 +115,7 @@ Fecha,Arribo,Cantidad,Farmacéutica
 07/07/2021,Ciudad de México,232830,Pfizer-BioNTech
 07/07/2021,Ciudad de México,1000000,Sinovac
 08/07/2021,Ciudad de México,1000000,Sinovac
-09/07/2021,Estado de México,917300,AstraZeneca
-09/07/2021,Estado de México,832100,AstraZeneca
+09/07/2021,Estado de México,1749400,AstraZeneca
 10/07/2021,Ciudad de México,1000000,Sinovac
 10/07/2021,Querétaro,219300,CanSino Biologics
 13/07/2021,Ciudad de México,296010,Pfizer-BioNTech
@@ -129,8 +126,6 @@ Fecha,Arribo,Cantidad,Farmacéutica
 15/07/2021,Querétaro,451780,CanSino Biologics
 16/07/2021,Estado de México,1862100,AstraZeneca
 17/07/2021,Ciudad de México,1000000,Sinovac
-19/07/2021,Ciudad de México,585000,Pfizer-BioNTech
-20/07/2021,Ciudad de México,446940,Pfizer-BioNTech
 20/07/2021,Ciudad de México,106470,Pfizer-BioNTech
 21/07/2021,Ciudad de México,585000,Pfizer-BioNTech
 21/07/2021,Ciudad de México,2000000,Sinovac
@@ -138,10 +133,13 @@ Fecha,Arribo,Cantidad,Farmacéutica
 27/07/2021,Ciudad de México,408330,Pfizer-BioNTech
 28/07/2021,Ciudad de México,2000000,Sinovac
 28/07/2021,Ciudad de México,585000,Pfizer-BioNTech
-30/07/2021,Estado de México,3604000,AstraZeneca
+30/07/2021,Estado de México,3454000,AstraZeneca
 31/07/2021,Querétaro,419230,CanSino Biologics
 01/08/2021,Ciudad de México,100000,Sputnik V
 03/08/2021,Ciudad de México,313560,Pfizer-BioNTech
-03/08/2021,Estado de México,1769670,AstraZeneca
+03/08/2021,Estado de México,1769500,AstraZeneca
 04/08/2021,Ciudad de México,585000,Pfizer-BioNTech
 07/08/2021,Estado de México,1567600,AstraZeneca
+08/08/2021,Estado de México,115700,AstraZeneca
+10/08/2021,Ciudad de México,288990,Pfizer-BioNTech
+11/08/2021,Ciudad de México,585000,Pfizer-BioNTech
