@@ -241,6 +241,7 @@ summay_v = vac_meses_g.iloc[7]['Cantidad']
 sumjun_v = vac_meses_g.iloc[5]['Cantidad']
 sumjul_v = vac_meses_g.iloc[4]['Cantidad']
 sumago_v = vac_meses_g.iloc[1]['Cantidad']
+sumsep_v = vac_meses_g.iloc[9]["Cantidad"]
 # al actualizar el mes, utilizar el valor.iloc antiguo de sumdic_v
 
 ########################################################################## Para graficas mensuales
@@ -254,7 +255,7 @@ vac_meses_T.to_csv('0000proceso.csv')
 
 vac_meses_T1=pd.read_csv('0000proceso.csv', names=['id','Abril2021',"Agosto2021",'Enero2021',
                                                    'Febrero2021','Julio2021','Junio2021','Marzo2021','Mayo2021',
-                                                   'Diciembre2020'])
+                                                   'Diciembre2020','Septiembre2021',])
 vac_meses_T1.drop([0], inplace=True,  errors='ignore')  #Ae errors='ignore'
 
 
@@ -459,6 +460,28 @@ figvac_agosto.update_layout(paper_bgcolor='rgba(0,0,0,0)',
 colors = ['#9D2449']
 
 figvac_agosto.update_traces(rotation=43,
+                               marker=dict(colors=colors))
+
+#### mes septiembre
+figvac_septiembre = px.pie(vac_meses_T1, values='Septiembre2021', names='id',
+                color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
+
+figvac_septiembre.update_layout(paper_bgcolor='rgba(0,0,0,0)',
+                  plot_bgcolor='rgba(0,0,0,0)',
+                  uniformtext_minsize=6,
+                  uniformtext_mode='hide',
+                  autosize=True,
+                  title_font_size = 6,
+                  font_color="white",
+                  title_font_color="white",
+                           width=300,
+                  height=300,
+                  margin = dict(autoexpand= False),
+                          showlegend=False),
+    
+colors = ['#9D2449']
+
+figvac_septiembre.update_traces(rotation=43,
                                marker=dict(colors=colors))
 
 
@@ -697,56 +720,71 @@ body = html.Div([
                         
             dbc.Row([
             dbc.Col(dbc.Button(([html.H6("Diciembre"),html.H3([str(f'{sumdic_v:,d}')]),
-                                html.P(dcc.Graph(figure=figvac_diciembre,style={#"width":210,
+                                html.P(dcc.Graph(figure=figvac_diciembre,style={"width":260,
                                     "margin-left": "-80px"})),
-                                ]),style={"height":"350px",  "background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"10px"
+                                ]),style={"height":"350px",  
+                                          "background-color":"white",
+                                          "box-shadow": "10px 20px 30px black", 
+                                          "margin-left":"10px"
                                          }, disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Enero"),html.H3([str(f'{sumene_v:,d}')]), 
-                                html.P(dcc.Graph(figure=figvac_enero,style={#"width":210, 
+                                html.P(dcc.Graph(figure=figvac_enero,style={"width":260, 
                                     "margin-left": "-80px"})),
-                                ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"10px"},disabled=True)),
+                                ]),style={"height":"350px",
+                                          "background-color":"white",
+                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px"},disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Febrero"),html.H3([str(f'{sumfeb_v:,d}')]), 
-                                html.P(dcc.Graph(figure=figvac_febrero,style={#"width":210, 
+                                html.P(dcc.Graph(figure=figvac_febrero,style={"width":260, 
                                     "margin-left": "-80px"})),
-                                ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"10px"}, disabled=True)),
+                                ]),style={"height":"350px","background-color":"white",
+                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px"}, disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Marzo"),html.H3([str(f'{summar_v:,d}')]),
-                                  html.P(dcc.Graph(figure=figvac_marzo,style={#"width":210, 
+                                  html.P(dcc.Graph(figure=figvac_marzo,style={"width":260, 
                                       "margin-left": "-80px"})),
-                                ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"10px"},disabled=True)),
+                                ]),style={"height":"350px","background-color":"white",
+                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px"},disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Abril"),html.H3([str(f'{sumabr_v:,d}')]),
-                                  html.P(dcc.Graph(figure=figvac_abril,style={#"width":210,
+                                  html.P(dcc.Graph(figure=figvac_abril,style={"width":260,
                                       "margin-left": "-80px"})),
-                                ]),style={"height":"350px","background-color":"white","box-shadow": "10px 20px 30px black", "margin-left":"10px"}, disabled=True)),
-             ], align='center'),
+                                ]),style={"height":"350px","background-color":"white",
+                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px"}, disabled=True)),
+             ]),#align='center'),
     html.Br(),
     html.Br(),
     html.Br(),
                dbc.Row([
             dbc.Col(dbc.Button(([html.H6("Mayo"),html.H3([str(f'{summay_v:,d}')], style={"color":"red"}),
-                                  html.P(dcc.Graph(figure=figvac_mayo,style={#"width":220,
+                                  html.P(dcc.Graph(figure=figvac_mayo,style={"width":260,
                                       "margin-left": "-80px"})),
                                 ]),style={"height":"350px","background-color":"white",
-                                          "box-shadow": "10px 20px 30px black", "margin-left":"100px"},disabled=True)),
+                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px"},disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Junio"),html.H3([str(f'{sumjun_v:,d}')]),
-                                  html.P(dcc.Graph(figure=figvac_junio,style={#"width":220,
-                                     # "margin-left": "-80px"
+                                  html.P(dcc.Graph(figure=figvac_junio,style={"width":260,
+                                      "margin-left": "-80px"
                                   })),
                                 ]),style={"height":"350px","background-color":"white",
-                                          "box-shadow": "10px 20px 30px black", #"margin-left":"10px"
+                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px"
                                          }, disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Julio"),html.H3([str(f'{sumjul_v:,d}')]),
-                                  html.P(dcc.Graph(figure=figvac_julio,style={#"width":220,
-                                     # "margin-left": "-80px"
+                                  html.P(dcc.Graph(figure=figvac_julio,style={"width":260,
+                                      "margin-left": "-80px"
                                   })),
                                 ]),style={"height":"350px","background-color":"white",
-                                          "box-shadow": "10px 20px 30px black",# "margin-left":"10px"
+                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px"
                                          }, disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Agosto"),html.H3([str(f'{sumago_v:,d}')]),
-                                  html.P(dcc.Graph(figure=figvac_agosto,style={#"width":220,
-                                     # "margin-left": "-80px"
+                                  html.P(dcc.Graph(figure=figvac_agosto,style={"width":260,
+                                      "margin-left": "-80px"
                                   })),
                                 ]),style={"height":"350px","background-color":"white",
-                                          "box-shadow": "10px 20px 30px black",# "margin-left":"10px",
+                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px",
+                                         "margin-right": "100px"}, disabled=True)),
+           dbc.Col(dbc.Button(([html.H6("Septiembre"),html.H3([str(f'{sumsep_v:,d}')]),
+                                  html.P(dcc.Graph(figure=figvac_agosto,style={"width":260,
+                                      "margin-left": "-80px"
+                                  })),
+                                ]),style={"height":"350px","background-color":"white",
+                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px",
                                          "margin-right": "100px"}, disabled=True)),
     
             
