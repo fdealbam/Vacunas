@@ -31,7 +31,7 @@ Fecha,Arribo,Cantidad,Farmacéutica
 16/03/2021,Ciudad de México,217425,Pfizer-BioNTech
 16/03/2021,Querétaro,225225,Pfizer-BioNTech
 18/03/2021,Ciudad de México,1000000,Sinovac
-22/03/2021,Querétaro,940470,CanSino Biologics
+22/03/2021,Querétaro,944480,CanSino Biologics
 23/03/2021,Ciudad de México,487500,Pfizer-BioNTech
 24/03/2021,Ciudad de México,170625,Pfizer-BioNTech
 25/03/2021,Ciudad de México,1000000,Sinovac
@@ -48,7 +48,7 @@ Fecha,Arribo,Cantidad,Farmacéutica
 12/04/2021,Ciudad de México,487500,Pfizer-BioNTech
 15/04/2021,Ciudad de México,500000,Sinovac
 15/04/2021,Ciudad de México,487500,Pfizer-BioNTech
-16/04/2021,Querétaro,674430,CanSino Biologics
+16/04/2021,Querétaro,670420,CanSino Biologics
 16/04/2021,Ciudad de México,328575,Pfizer-BioNTech
 21/04/2021,Ciudad de México,1075200,AstraZeneca
 21/04/2021,Ciudad de México,200000,Sputnik V
@@ -63,16 +63,16 @@ Fecha,Arribo,Cantidad,Farmacéutica
 30/04/2021,Querétaro,505510,CanSino Biologics
 05/05/2021,Querétaro,203160,CanSino Biologics
 06/05/2021,Ciudad de México,1000000,Sinovac
-07/05/2021,Querétaro,470490,CanSino Biologics
+08/05/2021,Querétaro,673650,CanSino Biologics
 11/05/2021,Ciudad de México,585000,Pfizer-BioNTech
 12/05/2021,Ciudad de México,250380,Pfizer-BioNTech
-12/05/2021,Querétaro,208220,CanSino Biologics
-13/05/2021,Querétaro,203290,CanSino Biologics
+12/05/2021,Querétaro,209660,CanSino Biologics
 13/05/2021,Ciudad de México,585000,Pfizer-BioNTech
 14/05/2021,Querétaro,207020,CanSino Biologics
 15/05/2021,Ciudad de México,35000,CanSino Biologics
+15/05/2021,Ciudad de México,408870,CanSino Biologics
 17/05/2021,Ciudad de México,500000,Sputnik V
-17/05/2021,Querétaro,126790,CanSino Biologics
+19/05/2021,Querétaro,126790,CanSino Biologics
 19/05/2021,Ciudad de México,585000,Pfizer-BioNTech
 20/05/2021,Ciudad de México,114660,Pfizer-BioNTech
 20/05/2021,Ciudad de México,585000,Pfizer-BioNTech
@@ -147,7 +147,7 @@ Fecha,Arribo,Cantidad,Farmacéutica
 03/08/2021,Ciudad de México,313560,Pfizer-BioNTech
 03/08/2021,Estado de México,1769500,AstraZeneca
 04/08/2021,Ciudad de México,585000,Pfizer-BioNTech
-04/08/2021,Querétaro,346540,CanSino Biologics
+06/08/2021,Querétaro,346540,CanSino Biologics
 07/08/2021,Estado de México,1567600,AstraZeneca
 08/08/2021,Estado de México,115700,AstraZeneca
 10/08/2021,Ciudad de México,288990,Pfizer-BioNTech
