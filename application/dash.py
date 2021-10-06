@@ -232,16 +232,17 @@ pd.DataFrame(vac_meses_g).to_csv('0000proceso.csv')
 vac_meses_g=pd.read_csv('0000proceso.csv')
 
 #Identificadores Cantidad
-sumdic_v = vac_meses_g.iloc[8]['Cantidad'] #al actualizar el mes, subir un punto
-sumene_v = vac_meses_g.iloc[2]['Cantidad']
-sumfeb_v = vac_meses_g.iloc[3]['Cantidad']
-summar_v = vac_meses_g.iloc[6]['Cantidad']
-sumabr_v = vac_meses_g.iloc[0]['Cantidad']
-summay_v = vac_meses_g.iloc[7]['Cantidad'] 
-sumjun_v = vac_meses_g.iloc[5]['Cantidad']
-sumjul_v = vac_meses_g.iloc[4]['Cantidad']
-sumago_v = vac_meses_g.iloc[1]['Cantidad']
-sumsep_v = vac_meses_g.iloc[9]["Cantidad"]
+sumdic_v = vac_meses_g.iloc[8] ['Cantidad'] #al actualizar el mes, subir un punto
+sumene_v = vac_meses_g.iloc[2] ['Cantidad']
+sumfeb_v = vac_meses_g.iloc[3] ['Cantidad']
+summar_v = vac_meses_g.iloc[6] ['Cantidad']
+sumabr_v = vac_meses_g.iloc[0] ['Cantidad']
+summay_v = vac_meses_g.iloc[7] ['Cantidad'] 
+sumjun_v = vac_meses_g.iloc[5] ['Cantidad']
+sumjul_v = vac_meses_g.iloc[4] ['Cantidad']
+sumago_v = vac_meses_g.iloc[1] ['Cantidad']
+sumsep_v = vac_meses_g.iloc[10]["Cantidad"]
+sumoct_v = vac_meses_g.iloc[9] ["Cantidad"]
 # al actualizar el mes, utilizar el valor.iloc antiguo de sumdic_v
 
 ########################################################################## Para graficas mensuales
@@ -255,7 +256,7 @@ vac_meses_T.to_csv('0000proceso.csv')
 
 vac_meses_T1=pd.read_csv('0000proceso.csv', names=['id','Abril2021',"Agosto2021",'Enero2021',
                                                    'Febrero2021','Julio2021','Junio2021','Marzo2021','Mayo2021',
-                                                   'Diciembre2020','Septiembre2021',])
+                                                   'Diciembre2020',"Octubre2021",'Septiembre2021',])
 vac_meses_T1.drop([0], inplace=True,  errors='ignore')  #Ae errors='ignore'
 
 
@@ -483,6 +484,29 @@ colors = ['#9D2449']
 
 figvac_septiembre.update_traces(rotation=43,
                                marker=dict(colors=colors))
+
+#### mes octubre
+figvac_octubre = px.pie(vac_meses_T1, values='Octubre2021', names='id',
+                color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
+
+figvac_octubre.update_layout(paper_bgcolor='rgba(0,0,0,0)',
+                  plot_bgcolor='rgba(0,0,0,0)',
+                  uniformtext_minsize=6,
+                  uniformtext_mode='hide',
+                  autosize=True,
+                  title_font_size = 6,
+                  font_color="white",
+                  title_font_color="white",
+                           width=300,
+                  height=300,
+                  margin = dict(autoexpand= False),
+                          showlegend=False),
+    
+colors = ['#9D2449']
+
+figvac_octubre.update_traces(rotation=43,
+                               marker=dict(colors=colors))
+
 
 
 ########################################################################## Para la APP 
@@ -781,6 +805,13 @@ body = html.Div([
                                          "margin-right": "100px"}, disabled=True)),
            dbc.Col(dbc.Button(([html.H6("Septiembre"),html.H3([str(f'{sumsep_v:,d}')]),
                                   html.P(dcc.Graph(figure=figvac_agosto,style={"width":260,
+                                      "margin-left": "-80px"
+                                  })),
+                                ]),style={"height":"350px","background-color":"white",
+                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px",
+                                         "margin-right": "100px"}, disabled=True)),
+          dbc.Col(dbc.Button(([html.H6("Octubre"),html.H3([str(f'{sumoct_v:,d}')]),
+                                  html.P(dcc.Graph(figure=figvac_octubre,style={"width":260,
                                       "margin-left": "-80px"
                                   })),
                                 ]),style={"height":"350px","background-color":"white",
