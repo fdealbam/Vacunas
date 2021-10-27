@@ -152,7 +152,7 @@ Arribo,Fecha,Vacuna,Farmacéutica,Cantidad
 151,18/10/2021,AstraZeneca,AstraZeneca,"1,806,900"
 152,19/10/2021,AstraZeneca,AstraZeneca,"3,412,900"
 153,20/10/2021,Pfizer,Pfizer-BioNTech,"594,360"
-154,24/10/2021,Sputnik V,"729,000"
-155,25/10/2021,AstraZeneca,"1,090,900"
-156,26/10/2021,Sputnik V,"6,480,000"
-
+154,24/10/2021,Sputnik V,Sputnik V,"729,000"
+155,25/10/2021,AstraZeneca,AstraZeneca,"1,090,900"
+156,26/10/2021,Sputnik V,Sputnik V,"6,480,000"
+157,27/10/2021,Pfizer,Pfizer-BioNTech,"592,020"
