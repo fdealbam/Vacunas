@@ -175,7 +175,7 @@ Fecha,Arribo,Cantidad,Farmacéutica
 22/09/2021,Ciudad de México,585000,Pfizer-BioNTech
 23/09/2021,Ciudad de México,2077100,AstraZeneca
 26/09/2021,Ciudad de México,900000,Sputnik V
-28/09/2021,Querétaro,855240,CanSino Biologics
+28/09/2021,Querétaro,854520,CanSino Biologics
 28/09/2021,Ciudad de México,551070,Pfizer-BioNTech
 01/10/2021,Ciudad de México,2296600,AstraZeneca
 02/10/2021,Querétaro,597280,CanSino Biologics
@@ -214,3 +214,5 @@ Fecha,Arribo,Cantidad,Farmacéutica
 16/11/2021,Ciudad de México,596700,Pfizer-BioNTech
 17/11/2021,Ciudad de México,596700,Pfizer-BioNTech
 17/11/2021,Estado de México,619200,AstraZeneca
+19/11/2021,Querétaro,567800,CanSino Biologics
+22/11/2021,Ciudad de México,2592000,AstraZeneca
