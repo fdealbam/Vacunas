@@ -66,6 +66,7 @@ tabla_envios["Dosis "] = tabla_envios["Dosis "].apply(lambda x : "{:,}".format(x
 vacunas['Cantidad']=vacunas['Cantidad'].astype(int)
 #Total Cantidad
 tot_vac = vacunas.Cantidad.sum()
+tot_pob = 126014024
 # convert the 'Date' column to datetime format
 format = '%d/%m/%Y'
 vacunas['Fecha'] = pd.to_datetime(vacunas['Fecha'], format=format)
@@ -89,7 +90,7 @@ tabla1["Dosis promedio a envasar"] =tabla1["Dosis promedio a envasar"].apply(lam
 ######################################################################
 #Aqui comienza el tratamiento
 #######################################################################
-vacunas_flyies=vacunas
+vacunas_flyies=vacunas.copy()
 
 #rename
 vacunas_flyies.rename(columns={'FarmacÃ©utica': 'Farmacéutica' },inplace=True,errors='ignore')
@@ -199,9 +200,8 @@ cant_tot5 = patabla2.iloc[4]['Cantidad']
 #cant_tot6 = patabla2.iloc[5]['Cantidad']
 
 
-
 ############################################### Tratamiento TABLA meses 
-vac_meses=vacunas
+vac_meses=vacunas.copy()
 
 vac_meses['Year'] = vac_meses['Fecha'].dt.year
 #vac_meses=vac_meses[vac_meses.Year!='nan']
@@ -211,6 +211,7 @@ vac_meses['Year']=vac_meses['Year'].astype(str)
 
 vac_meses['Mes'] = vac_meses['Fecha'].dt.month
 
+# 2
 vac_meses['Mes'].replace(1.0,'Enero',inplace=True)
 vac_meses['Mes'].replace(2.0,'Febrero',inplace=True)
 vac_meses['Mes'].replace(3.0,'Marzo',inplace=True)
@@ -221,8 +222,8 @@ vac_meses['Mes'].replace(7.0,'Julio',inplace=True)
 vac_meses['Mes'].replace(8.0,'Agosto',inplace=True)
 vac_meses['Mes'].replace(9.0,'Septiembre',inplace=True)
 vac_meses['Mes'].replace(10.0,'Octubre',inplace=True)
-vac_meses['Mes'].replace(12.0,'Noviembre',inplace=True)
-vac_meses['Mes'].replace(13.0,'Diciembre',inplace=True)
+vac_meses['Mes'].replace(11.0,'Noviembre',inplace=True)
+vac_meses['Mes'].replace(12.0,'Diciembre',inplace=True)
 
 vac_meses['Mes']=vac_meses['Mes'].astype(str)
 
@@ -230,38 +231,37 @@ vac_meses['Mes_y']=vac_meses['Mes']+vac_meses['Year']
 vac_meses_g=vac_meses.groupby('Mes_y')['Cantidad'].sum()
 pd.DataFrame(vac_meses_g).to_csv('0000proceso.csv')
 vac_meses_g=pd.read_csv('0000proceso.csv')
+#vac_meses_g
 
-#Identificadores Cantidad
-sumdic_v = vac_meses_g.iloc[8] ['Cantidad'] #al actualizar el mes, subir un punto
-sumene_v = vac_meses_g.iloc[2] ['Cantidad']
-sumfeb_v = vac_meses_g.iloc[3] ['Cantidad']
-summar_v = vac_meses_g.iloc[6] ['Cantidad']
-sumabr_v = vac_meses_g.iloc[0] ['Cantidad']
-summay_v = vac_meses_g.iloc[7] ['Cantidad'] 
-sumjun_v = vac_meses_g.iloc[5] ['Cantidad']
-sumjul_v = vac_meses_g.iloc[4] ['Cantidad']
-sumago_v = vac_meses_g.iloc[1] ['Cantidad']
-sumsep_v = vac_meses_g.iloc[10]["Cantidad"]
-sumoct_v = vac_meses_g.iloc[9] ["Cantidad"]
-# al actualizar el mes, utilizar el valor.iloc antiguo de sumdic_v
+# 3
+#Identiicadores Cantidad  # se ha acmbiado a una forma más segura de selección, con filtro
+sumdic_v = vac_meses_g[vac_meses_g.Mes_y == 'Diciembre2020']['Cantidad'].sum()
+sumene_v = vac_meses_g[vac_meses_g.Mes_y == 'Enero2021']['Cantidad'].sum()
+sumfeb_v = vac_meses_g[vac_meses_g.Mes_y == 'Febrero2021']['Cantidad'].sum()
+summar_v = vac_meses_g[vac_meses_g.Mes_y == 'Marzo2021']['Cantidad'].sum()
+sumabr_v = vac_meses_g[vac_meses_g.Mes_y == 'Abril2021']['Cantidad'].sum()
+summay_v = vac_meses_g[vac_meses_g.Mes_y == 'Mayo2021']['Cantidad'].sum()
+sumjun_v = vac_meses_g[vac_meses_g.Mes_y == 'Junio2021']['Cantidad'].sum()
+sumjul_v = vac_meses_g[vac_meses_g.Mes_y == 'Julio2021']['Cantidad'].sum()
+sumago_v = vac_meses_g[vac_meses_g.Mes_y == 'Agosto2021']['Cantidad'].sum()
+sumsep_v = vac_meses_g[vac_meses_g.Mes_y == 'Septiembre2021']['Cantidad'].sum()
+sumoct_v = vac_meses_g[vac_meses_g.Mes_y == 'Octubre2021']['Cantidad'].sum()
+sumnov_v = vac_meses_g[vac_meses_g.Mes_y == 'Noviembre2021']['Cantidad'].sum()
+sumdic_vb = vac_meses_g[vac_meses_g.Mes_y == 'Diciembre2021']['Cantidad'].sum()
 
 ########################################################################## Para graficas mensuales
 
-vac_meses_g_pie = vac_meses_g
+nambresmijita = vac_meses_g.Mes_y.to_list()
+vac_meses_g_pie = vac_meses_g.copy()
 
 vac_meses_g_pie['total_percen'] = tot_vac
-vac_meses_T = vac_meses_g_pie.T
-vac_meses_T.drop(['Mes_y'], inplace=True)
-vac_meses_T.to_csv('0000proceso.csv')
-
-vac_meses_T1=pd.read_csv('0000proceso.csv', names=['id','Abril2021',"Agosto2021",'Enero2021',
-                                                   'Febrero2021','Julio2021','Junio2021','Marzo2021','Mayo2021',
-                                                   'Diciembre2020',"Octubre2021",'Septiembre2021',])
-vac_meses_T1.drop([0], inplace=True,  errors='ignore')  #Ae errors='ignore'
+vac_meses_T1 = vac_meses_g_pie.T
+vac_meses_T1.drop(['Mes_y'], inplace=True)
+vac_meses_T1.columns = nambresmijita
 
 
 #### mes Diciembre
-figvac_diciembre = px.pie(vac_meses_T1, values='Diciembre2020', names='id',
+figvac_diciembre = px.pie(vac_meses_T1, values='Diciembre2020',# names='id',
                 color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
 
 figvac_diciembre.update_layout(paper_bgcolor='rgba(0,0,0,0)',
@@ -284,7 +284,7 @@ figvac_diciembre.update_traces(rotation=43,
 
 
 #### mes Enero
-figvac_enero = px.pie(vac_meses_T1, values='Enero2021', names='id',
+figvac_enero = px.pie(vac_meses_T1, values='Enero2021',# names='id',
                 color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
 
 figvac_enero.update_layout(paper_bgcolor='rgba(0,0,0,0)',
@@ -308,7 +308,7 @@ figvac_enero.update_traces(rotation=43,
 
 
 #### mes Febrero
-figvac_febrero = px.pie(vac_meses_T1, values='Febrero2021',  names='id',
+figvac_febrero = px.pie(vac_meses_T1, values='Febrero2021',  #names='id',
                 color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
 
 figvac_febrero.update_layout(paper_bgcolor='rgba(0,0,0,0)',
@@ -331,7 +331,7 @@ figvac_febrero.update_traces(rotation=43,
 
 
 #### mes marzo
-figvac_marzo = px.pie(vac_meses_T1, values='Marzo2021', names='id',
+figvac_marzo = px.pie(vac_meses_T1, values='Marzo2021',# names='id',
                 color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
 
 figvac_marzo.update_layout(paper_bgcolor='rgba(0,0,0,0)',
@@ -354,7 +354,7 @@ figvac_marzo.update_traces(rotation=43,
 
 
 #### mes Abril
-figvac_abril = px.pie(vac_meses_T1, values='Abril2021', names='id',
+figvac_abril = px.pie(vac_meses_T1, values='Abril2021',# names='id',
                 color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
 
 figvac_abril.update_layout(paper_bgcolor='rgba(0,0,0,0)',
@@ -376,7 +376,7 @@ figvac_abril.update_traces(rotation=43,
                                marker=dict(colors=colors))
 
 #### mes Abril
-figvac_mayo = px.pie(vac_meses_T1, values='Mayo2021', names='id',
+figvac_mayo = px.pie(vac_meses_T1, values='Mayo2021',# names='id',
                 color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
 
 figvac_mayo.update_layout(paper_bgcolor='rgba(0,0,0,0)',
@@ -399,7 +399,7 @@ figvac_mayo.update_traces(rotation=43,
 
 
 #### mes junio
-figvac_junio = px.pie(vac_meses_T1, values='Junio2021', names='id',
+figvac_junio = px.pie(vac_meses_T1, values='Junio2021',# names='id',
                 color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
 
 figvac_junio.update_layout(paper_bgcolor='rgba(0,0,0,0)',
@@ -421,7 +421,7 @@ figvac_junio.update_traces(rotation=43,
                                marker=dict(colors=colors))
 
 #### mes julio
-figvac_julio = px.pie(vac_meses_T1, values='Julio2021', names='id',
+figvac_julio = px.pie(vac_meses_T1, values='Julio2021', #names='id',
                 color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
 
 figvac_julio.update_layout(paper_bgcolor='rgba(0,0,0,0)',
@@ -442,7 +442,7 @@ colors = ['#9D2449']
 figvac_julio.update_traces(rotation=43,
                                marker=dict(colors=colors))
 #### mes agosto
-figvac_agosto = px.pie(vac_meses_T1, values='Agosto2021', names='id',
+figvac_agosto = px.pie(vac_meses_T1, values='Agosto2021', #names='id',
                 color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
 
 figvac_agosto.update_layout(paper_bgcolor='rgba(0,0,0,0)',
@@ -464,7 +464,7 @@ figvac_agosto.update_traces(rotation=43,
                                marker=dict(colors=colors))
 
 #### mes septiembre
-figvac_septiembre = px.pie(vac_meses_T1, values='Septiembre2021', names='id',
+figvac_septiembre = px.pie(vac_meses_T1, values='Septiembre2021',# names='id',
                 color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
 
 figvac_septiembre.update_layout(paper_bgcolor='rgba(0,0,0,0)',
@@ -486,7 +486,7 @@ figvac_septiembre.update_traces(rotation=43,
                                marker=dict(colors=colors))
 
 #### mes octubre
-figvac_octubre = px.pie(vac_meses_T1, values='Octubre2021', names='id',
+figvac_octubre = px.pie(vac_meses_T1, values='Octubre2021', #names='id',
                 color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
 
 figvac_octubre.update_layout(paper_bgcolor='rgba(0,0,0,0)',
@@ -507,6 +507,49 @@ colors = ['#9D2449']
 figvac_octubre.update_traces(rotation=43,
                                marker=dict(colors=colors))
 
+#### mes noviembre
+figvac_noviembre = px.pie(vac_meses_T1, values='Noviembre2021',# names='id',
+                color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
+
+figvac_noviembre.update_layout(paper_bgcolor='rgba(0,0,0,0)',
+                  plot_bgcolor='rgba(0,0,0,0)',
+                  uniformtext_minsize=6,
+                  uniformtext_mode='hide',
+                  autosize=True,
+                  title_font_size = 6,
+                  font_color="white",
+                  title_font_color="white",
+                           width=300,
+                  height=300,
+                  margin = dict(autoexpand= False),
+                          showlegend=False),
+    
+colors = ['#9D2449']
+
+figvac_noviembre.update_traces(rotation=43,
+                               marker=dict(colors=colors))
+
+### mes diciembre
+figvac_diciembre = px.pie(vac_meses_T1, values='Diciembre2021',# names='id',
+                color_discrete_sequence=px.colors.sequential.Oranges, hole=.5)
+
+figvac_diciembre.update_layout(paper_bgcolor='rgba(0,0,0,0)',
+                  plot_bgcolor='rgba(0,0,0,0)',
+                  uniformtext_minsize=6,
+                  uniformtext_mode='hide',
+                  autosize=True,
+                  title_font_size = 6,
+                  font_color="white",
+                  title_font_color="white",
+                           width=300,
+                  height=300,
+                  margin = dict(autoexpand= False),
+                          showlegend=False),
+    
+colors = ['#9D2449']
+
+figvac_diciembre.update_traces(rotation=43,
+                               marker=dict(colors=colors))
 
 
 ########################################################################## Para la APP 
@@ -621,7 +664,7 @@ table_bodymeses = [html.Tbody([row1, row2])]
 vacunas_prom_day=vacunas.groupby('Fecha')['Cantidad'].mean()
 pd.DataFrame(vacunas_prom_day).to_csv('0000proceso.csv')
 vacunas_prom = pd.read_csv('0000proceso.csv')
-vacunas_prom_day = f"{int(((vacunas_prom.Cantidad.mean()).round(0))):,}"
+vacunas_prom_day = f"{int(vacunas_prom.Cantidad.mean()):,}"
 
 ######################################################### Dia max recivido
 
@@ -784,41 +827,41 @@ body = html.Div([
                                           "box-shadow": "10px 20px 30px black", "margin-left":"10px"},disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Junio"),html.H3([str(f'{sumjun_v:,d}')]),
                                   html.P(dcc.Graph(figure=figvac_junio,style={"width":260,
-                                      "margin-left": "-80px"
-                                  })),
+                                      "margin-left": "-80px"})),
                                 ]),style={"height":"350px","background-color":"white",
-                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px"
-                                         }, disabled=True)),
+                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px"}, disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Julio"),html.H3([str(f'{sumjul_v:,d}')]),
                                   html.P(dcc.Graph(figure=figvac_julio,style={"width":260,
-                                      "margin-left": "-80px"
-                                  })),
+                                      "margin-left": "-80px"})),
                                 ]),style={"height":"350px","background-color":"white",
-                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px"
-                                         }, disabled=True)),
+                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px"}, disabled=True)),
             dbc.Col(dbc.Button(([html.H6("Agosto"),html.H3([str(f'{sumago_v:,d}')]),
                                   html.P(dcc.Graph(figure=figvac_agosto,style={"width":260,
-                                      "margin-left": "-80px"
-                                  })),
+                                      "margin-left": "-80px"})),
                                 ]),style={"height":"350px","background-color":"white",
                                           "box-shadow": "10px 20px 30px black", "margin-left":"10px",
                                          "margin-right": "100px"}, disabled=True)),
            dbc.Col(dbc.Button(([html.H6("Septiembre"),html.H3([str(f'{sumsep_v:,d}')]),
                                   html.P(dcc.Graph(figure=figvac_agosto,style={"width":260,
-                                      "margin-left": "-80px"
-                                  })),
+                                      "margin-left": "-80px"})),
                                 ]),style={"height":"350px","background-color":"white",
-                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px",
-                                         "margin-right": "100px"}, disabled=True)),
+                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px"}, disabled=True)),
           dbc.Col(dbc.Button(([html.H6("Octubre"),html.H3([str(f'{sumoct_v:,d}')]),
                                   html.P(dcc.Graph(figure=figvac_octubre,style={"width":260,
-                                      "margin-left": "-80px"
-                                  })),
+                                      "margin-left": "-80px"})),
                                 ]),style={"height":"350px","background-color":"white",
                                           "box-shadow": "10px 20px 30px black", "margin-left":"10px",
                                          "margin-right": "100px"}, disabled=True)),
-    
-            
+          dbc.Col(dbc.Button(([html.H6("Noviembre"),html.H3([str(f'{sumnov_v:,d}')]),
+                                  html.P(dcc.Graph(figure=figvac_noviembre,style={"width":260,
+                                      "margin-left": "-80px"})),
+                                ]),style={"height":"350px","background-color":"white",
+                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px"}, disabled=True)),
+          dbc.Col(dbc.Button(([html.H6("Diciembre"),html.H3([str(f'{sumdic_vb:,d}')]),
+                                  html.P(dcc.Graph(figure=figvac_diciembre,style={"width":260,
+                                      "margin-left": "-80px"})),
+                                ]),style={"height":"350px","background-color":"white",
+                                          "box-shadow": "10px 20px 30px black", "margin-left":"10px"}, disabled=True)),
            ], align='center'),
     
                
