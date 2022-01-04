@@ -75,14 +75,14 @@ Fecha,Arribo,Cantidad,Farmacéutica
 20/05/2021,Ciudad de México,114660,Pfizer-BioNTech
 20/05/2021,Ciudad de México,585000,Pfizer-BioNTech
 20/05/2021,Ciudad de México,1000000,Sinovac
-21/05/2021,Ciudad de México,1274800,AstraZeneca
+21/05/2021,Ciudad de México,1190800,AstraZeneca
 23/05/2021,Ciudad de México,709300,AstraZeneca
 25/05/2021,Ciudad de México,114660,Pfizer-BioNTech
 26/05/2021,Ciudad de México,585000,Pfizer-BioNTech
 27/05/2021,Ciudad de México,585000,Pfizer-BioNTech
 27/05/2021,Ciudad de México,2229600,AstraZeneca
 30/05/2021,Ciudad de México,2195400,AstraZeneca
-31/05/2021,Ciudad de México,811000,AstraZeneca
+31/05/2021,Ciudad de México,809800,AstraZeneca
 01/06/2021,Ciudad de México,288990,Pfizer-BioNTech
 02/06/2021,Ciudad de México,585000,Pfizer-BioNTech
 03/06/2021,Ciudad de México,585000,Pfizer-BioNTech
@@ -124,7 +124,7 @@ Fecha,Arribo,Cantidad,Farmacéutica
 10/07/2021,Querétaro,219300,CanSino Biologics
 13/07/2021,Ciudad de México,296010,Pfizer-BioNTech
 14/07/2021,Ciudad de México,1000000,Sinovac
-14/07/2021,Estado de México,738900,AstraZeneca
+14/07/2021,Estado de México,735800,AstraZeneca
 15/07/2021,Ciudad de México,300000,Sputnik V
 15/07/2021,Ciudad de México,1148900,AstraZeneca
 15/07/2021,Querétaro,451780,CanSino Biologics
@@ -172,8 +172,9 @@ Fecha,Arribo,Cantidad,Farmacéutica
 16/09/2021,Ciudad de México,1150000,Sputnik V
 21/09/2021,Ciudad de México,1750000,Moderna
 21/09/2021,Ciudad de México,228150,Pfizer-BioNTech
+21/09/2021,Ciudad de México,1505000,AstraZeneca
 22/09/2021,Ciudad de México,585000,Pfizer-BioNTech
-23/09/2021,Ciudad de México,2327100,AstraZeneca
+22/09/2021,Ciudad de México,821200,AstraZeneca
 26/09/2021,Ciudad de México,900000,Sputnik V
 28/09/2021,Querétaro,854520,CanSino Biologics
 28/09/2021,Ciudad de México,551070,Pfizer-BioNTech
@@ -225,7 +226,7 @@ Fecha,Arribo,Cantidad,Farmacéutica
 01/12/2021,Ciudad de México,585000,Pfizer-BioNTech
 02/12/2021,Ciudad de México,585000,Pfizer-BioNTech
 02/12/2021,Ciudad de México,2160900,AstraZeneca
-02/12/2021,Ciudad de México,2354620,AstraZeneca
+02/12/2021,Ciudad de México,2349600,AstraZeneca
 03/12/2021,Ciudad de México,225810,Pfizer-BioNTech
 03/12/2021,Ciudad de México,900000,Sputnik V
 05/12/2021,Ciudad de México,1878700,AstraZeneca
@@ -237,8 +238,14 @@ Fecha,Arribo,Cantidad,Farmacéutica
 14/12/2021,Ciudad de México,4130400,AstraZeneca
 15/12/2021,Ciudad de México,585000,Pfizer-BioNTech
 16/12/2021,Ciudad de México,585000,Pfizer-BioNTech
-16/12/2021,Ciudad de México,990270,AstraZeneca
+16/12/2021,Ciudad de México,985500,AstraZeneca
 17/12/2021,Ciudad de México,224640,Pfizer-BioNTech
-20/12/2021,Ciudad de México,1455710,AstraZeneca
+20/12/2021,Ciudad de México,1576900,AstraZeneca
 21/12/2021,Ciudad de México,585000,Pfizer-BioNTech
 22/12/2021,Ciudad de México,585000,Pfizer-BioNTech
+23/12/2021,Ciudad de México,585000,Pfizer-BioNTech
+24/12/2021,Ciudad de México,224640,Pfizer-BioNTech
+28/12/2021,Ciudad de México,590850,Pfizer-BioNTech
+29/12/2021,Ciudad de México,590850,Pfizer-BioNTech
+30/12/2021,Ciudad de México,592020,Pfizer-BioNTech
+31/12/2021,Ciudad de México,204750,Pfizer-BioNTech
